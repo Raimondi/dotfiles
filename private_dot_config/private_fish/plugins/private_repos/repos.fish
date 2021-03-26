@@ -74,7 +74,7 @@ function repos_fish_setup -d "Set fish_repos abbreviations up."
 
   set -l prior_inode
   set -l check_dir .
-  if type gstat >/dev/null
+  if type gstat 2>/dev/null >/dev/null
     set gstat true
   end
   if test -n "$gstat"
@@ -239,7 +239,7 @@ function repos_fish_postexec -e fish_postexec -d 'Check if repo has been "init"e
 end
 
 function repos_fish_pwd -v PWD -d 'Change of directory, check if a VCS repo.'
-  if type gstat >/dev/null
+  if type gstat >/dev/null 2>/dev/null
     set inode (gstat -c \%i .)
   else
     set inode (stat -c \%i .)
