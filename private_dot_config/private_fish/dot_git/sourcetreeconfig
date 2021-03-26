@@ -1,0 +1,13 @@
+autorefresh=1
+savedIncoming=0
+lastUsedView=0
+savedOutgoing=0
+lastCheckedRemotes=2018-05-06 04:01:02 +0000
+disablerecursiveoperations=0
+autorefreshremotes=1
+remoteProjectLink0.identifier=Raimondi/config-fish
+remoteProjectLink0.remoteName=origin
+remoteProjectLink0.username=raimondi
+remoteProjectLink0.type=2
+remoteProjectLink0.baseUrl=https://www.github.com
+showBuildStatus=1

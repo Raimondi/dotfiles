@@ -1,0 +1,219 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+imap <buffer> <RightMouse> <Plug>delimitMateMRightMouse
+imap <buffer> <LeftMouse> <Plug>delimitMateMLeftMouse
+imap <buffer> <S-Up> <Plug>delimitMateS-Up
+imap <buffer> <S-Down> <Plug>delimitMateS-Down
+imap <buffer> <PageDown> <Plug>delimitMatePageDown
+imap <buffer> <PageUp> <Plug>delimitMatePageUp
+imap <buffer> <C-Right> <Plug>delimitMateC-Right
+imap <buffer> <C-Left> <Plug>delimitMateC-Left
+imap <buffer> <End> <Plug>delimitMateEnd
+imap <buffer> <Home> <Plug>delimitMateHome
+imap <buffer> <Del> <Plug>delimitMateDel
+imap <buffer> <S-Tab> <Plug>delimitMateS-Tab
+imap <buffer> <S-BS> <Plug>delimitMateS-BS
+imap <buffer> <BS> <Plug>delimitMateBS
+inoremap <buffer> <Plug>delimitMateJumpMany =len(b:_l_delimitMate_buffer) ? delimitMate#Finish(0) : delimitMate#JumpMany()
+imap <buffer> <M-Right> <Plug>delimitMateM-Right
+imap <buffer> <M-Left> <Plug>delimitMateM-Left
+imap <buffer> <D-Right> <Plug>delimitMateD-Right
+imap <buffer> <D-Left> <Plug>delimitMateD-Left
+map <buffer> <silent>  <Plug>VO_FollowLink
+map <buffer> <silent>  <Plug>VO_JumpBack
+map <buffer> <silent> ,,hD :call DeHoistAll()
+map <buffer> <silent> ,,hd :call DeHoist()
+map <buffer> <silent> ,,hh :call Hoist(line("."))
+map <buffer> ,,= :call ComputeDoc()
+map <buffer> <silent> ,,l <Plug>VO_CreateLink
+noremap <buffer> <silent> ,,cz :call NewHMD(FindRootParent(line(".")))
+noremap <buffer> <silent> ,,c9 :call SetPercent(".",90)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c8 :call SetPercent(".",80)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c7 :call SetPercent(".",70)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c6 :call SetPercent(".",60)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c5 :call SetPercent(".",50)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c4 :call SetPercent(".",40)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c3 :call SetPercent(".",30)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c2 :call SetPercent(".",20)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c1 :call SetPercent(".",10)|call CalculateMyBranch(line('.'))
+noremap <buffer> <silent> ,,c- :call DecPercent(".")   |call CalculateMyBranch(line("."))
+noremap <buffer> <silent> ,,c+ :call IncPercent(".")   |call CalculateMyBranch(line("."))
+noremap <buffer> <silent> ,,cx :call SwitchBox()       |call CalculateMyBranch(line("."))
+noremap <buffer> <silent> ,,cd :call DeleteCheckbox()
+noremap <buffer> <silent> ,,cB :call InsertCheckBox()
+noremap <buffer> <silent> ,,cp :call SafelyInsertCheckBoxPercentAlways()
+noremap <buffer> <silent> ,,c% :call SafelyInsertCheckBoxPercent()
+noremap <buffer> <silent> ,,cb :call SafelyInsertCheckBox()
+noremap <buffer> <silent> ,,H :echo "VimOutliner reserved command: ,,H"
+noremap <buffer> <silent> ,,h :echo "VimOutliner reserved command: ,,h"
+nnoremap <buffer> <silent> ,,e :call vimoutliner#spawn()
+nnoremap <buffer> <silent> ,,,, :runtime vimoutliner/vimoutlinerrc
+nnoremap <buffer> <silent> ,,1 :set foldlevel=0
+nnoremap <buffer> <silent> ,,2 :set foldlevel=1
+nnoremap <buffer> <silent> ,,3 :set foldlevel=2
+nnoremap <buffer> <silent> ,,4 :set foldlevel=3
+nnoremap <buffer> <silent> ,,5 :set foldlevel=4
+nnoremap <buffer> <silent> ,,6 :set foldlevel=5
+nnoremap <buffer> <silent> ,,7 :set foldlevel=6
+nnoremap <buffer> <silent> ,,8 :set foldlevel=7
+nnoremap <buffer> <silent> ,,9 :set foldlevel=8
+nnoremap <buffer> <silent> ,,0 :set foldlevel=99999
+map <buffer> <silent> ,,B :%s/\(^\t*\):/\1/e:let @/=""
+map <buffer> <silent> ,,b :%s/\(^\t*\):/\1/e:%s/\(^\t*\) /\1: /e:let @/=""
+nnoremap <buffer> <silent> <expr> ,,- 'o'.repeat('-', 40)."\0"
+noremap <buffer> <silent> ,,f :e .
+map <buffer> <silent> ,,S :silent call SortChildren(1)
+map <buffer> <silent> ,,s :silent call SortChildren(0)
+nnoremap <buffer> <silent> <expr> ,,T 'I'.vimoutliner#get_time()." \"
+nnoremap <buffer> <silent> <expr> ,,t 'A '.vimoutliner#get_time()."\"
+nnoremap <buffer> <silent> <expr> ,,D 'I'.vimoutliner#get_date()." \"
+nnoremap <buffer> <silent> <expr> ,,d 'A '.vimoutliner#get_date()."\"
+imap <buffer> <silent> g <Plug>delimitMateJumpMany
+cnoremap <buffer> <expr>  fugitive#buffer().rev()
+imap <buffer>  <Plug>delimitMateEsc
+imap <buffer> " <Plug>delimitMate"
+imap <buffer> ' <Plug>delimitMate'
+imap <buffer> ( <Plug>delimitMate(
+imap <buffer> ) <Plug>delimitMate)
+imap <buffer> <silent> ,,l <Plug>VO_CreateLinkI
+inoremap <buffer> <silent> ,,H :echo "VimOutliner reserved command: ,,H"
+inoremap <buffer> <silent> ,,h :echo "VimOutliner reserved command: ,,h"
+noremap! <buffer> <silent> ,,w :wa
+inoremap <buffer> <silent> <expr> ,,- repeat('-', 40)."\"
+inoremap <buffer> <silent> ,,f :e .
+inoremap <buffer> <silent> <expr> ,,t vimoutliner#get_time()
+inoremap <buffer> <silent> <expr> ,,d vimoutliner#get_date()
+imap <buffer> [ <Plug>delimitMate[
+imap <buffer> ] <Plug>delimitMate]
+imap <buffer> ` <Plug>delimitMate`
+imap <buffer> { <Plug>delimitMate{
+imap <buffer> } <Plug>delimitMate}
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal breakindent
+setlocal breakindentmin=20
+setlocal breakindentshift=0
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'vo_base'
+setlocal filetype=vo_base
+endif
+setlocal foldcolumn=1
+setlocal foldenable
+setlocal foldexpr=MyHoistableFoldLevel(v:lnum)
+setlocal foldignore=#
+setlocal foldlevel=20
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=expr
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=vimoutliner#foldtext()
+setlocal formatexpr=
+setlocal formatoptions=crqno
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,39,45,48-57,_,129-255
+setlocal keywordprg=
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal nomacmeta
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=syntaxcomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%*%t:%n/%{len(filter(range(1,bufnr('$')),'buflisted(v:val)'))}(%{FileSize()})[%H%#error#%M%*%R%W%Y]%{RenderStlFlag(&ff,'unix',1)}%*%{RenderStlFlag(&ff,'unix',0)},%{RenderStlFlag(&fenc,'utf-8',1)}%*%{RenderStlFlag(&fenc,'utf-8',0)}[%{IndentStatus(',','')}]%#error#%{StatuslineTabWarning()}%*%#error#%{StatuslineTrailingSpaceWarning()}%*%{StatuslineLongLineWarning()}\ %=%{(indent('.')/&sw+1).'|'}%l,%c%V\ %P/%L%{XPMautoUpdate(\"statusline\")}
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'vo_base'
+setlocal syntax=vo_base
+endif
+setlocal tabstop=2
+setlocal tags=~/.vim/vimoutliner/vo_tags.tag,./tags;,~/Documents/Source/vimoutliner/.git/tags
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal undofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=5
+1
+normal zo
+5
+normal zo
+11
+normal zo
+16
+normal zo
+25
+normal zo
+33
+normal zo
+let s:l = 18 - ((14 * winheight(0) + 17) / 35)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+18
+normal! 08l
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

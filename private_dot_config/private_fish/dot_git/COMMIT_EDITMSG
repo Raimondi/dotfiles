@@ -1,0 +1,63 @@
+Fix: stop sourcing non-existant scripts
+# |<----  Using a Maximum Of 50 Characters  ---->|
+
+
+# Explain why this change is being made
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+
+# Provide links or keys to any relevant tickets, articles or other resources
+# Example: Github issue #23
+
+# --- COMMIT END ---
+# Type can be
+#    feat     (new feature)
+#    fix      (bug fix)
+#    refactor (refactoring production code)
+#    style    (formatting, missing semi colons, etc; no code change)
+#    docs     (changes to documentation)
+#    test     (adding or refactoring tests; no production code change)
+#    chore    (updating grunt tasks etc; no production code change)
+# --------------------
+# Remember to
+#    Capitalize the subject line
+#    Use the imperative mood in the subject line
+#    Do not end the subject line with a period
+#    Separate subject from body with a blank line
+#    Use the body to explain what and why vs. how
+#    Can use multiple lines with "-" for bullet points in body
+# --------------------
+# For more information about this template, check out
+# https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   config.fish
+#
+# ------------------------ >8 ------------------------
+# Do not touch the line above.
+# Everything below will be removed.
+diff --git c/config.fish i/config.fish
+index 3a08ab8..4c0e40c 100644
+--- c/config.fish
++++ i/config.fish
+@@ -37,7 +37,6 @@ for dir in                                                        \
+ end
+ set -e temp_path
+ 
+-source ~/.config/fish/nix.fish
+ if set -q -U fish_user_abbreviations
+   set -e -U fish_user_abbreviations
+ end
+@@ -84,7 +83,7 @@ end
+ 
+ set -l plugin_dir ~/.config/fish/plugins
+ 
+-source "$plugin_dir/z-fish/z.fish"
++#source "$plugin_dir/z-fish/z.fish"
+ source "$plugin_dir/repos/repos.fish"
+ source "$plugin_dir/cd_on_error.fish"
+ source "$plugin_dir/fbell.fish"

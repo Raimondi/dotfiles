@@ -1,0 +1,273 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+<C-K>	ftplugin/vo_base.vim	/^map <buffer>   <C-K>         <C-]>$/;"	m
+<C-K>	plugin/vo_tags.vim	/^	map <buffer> <C-K> <Plug>VO_FollowLink$/;"	m
+<C-N>	ftplugin/vo_base.vim	/^map <buffer>   <C-N>         <C-T>$/;"	m
+<C-N>	plugin/vo_tags.vim	/^	map <buffer> <C-N> <Plug>VO_JumpBack$/;"	m
+<Plug>VO_CreateLink	plugin/vo_tags.vim	/^noremap <buffer> <Plug>VO_CreateLink :call <SID>create_link()<CR>$/;"	m
+<Plug>VO_CreateLinkI	plugin/vo_tags.vim	/^inoremap <buffer> <Plug>VO_CreateLinkI <C-O>:call <SID>create_link()<CR>$/;"	m
+<Plug>VO_FollowLink	plugin/vo_tags.vim	/^noremap <buffer> <Plug>VO_FollowLink :call <SID>follow_link()<CR>$/;"	m
+<Plug>VO_JumpBack	plugin/vo_tags.vim	/^noremap <buffer> <Plug>VO_JumpBack :call <SID>jump_back()<CR>$/;"	m
+<localleader>,,	ftplugin/vo_base.vim	/^map <buffer>   <localleader>,,          :source $HOME\/.vimoutliner\/outliner.vim<CR>$/;"	m
+<localleader>-	ftplugin/vo_base.vim	/^imap <buffer> <localleader>- ----------------------------------------<cr>$/;"	m
+<localleader>-	ftplugin/vo_base.vim	/^map <buffer> <localleader>- o----------------------------------------0$/;"	m
+<localleader>0	ftplugin/vo_base.vim	/^map <buffer>   <localleader>0           :set foldlevel=99999<CR>$/;"	m
+<localleader>1	ftplugin/vo_base.vim	/^map <buffer>   <localleader>1           :set foldlevel=0<CR>$/;"	m
+<localleader>2	ftplugin/vo_base.vim	/^map <buffer>   <localleader>2           :set foldlevel=1<CR>$/;"	m
+<localleader>3	ftplugin/vo_base.vim	/^map <buffer>   <localleader>3           :set foldlevel=2<CR>$/;"	m
+<localleader>4	ftplugin/vo_base.vim	/^map <buffer>   <localleader>4           :set foldlevel=3<CR>$/;"	m
+<localleader>5	ftplugin/vo_base.vim	/^map <buffer>   <localleader>5           :set foldlevel=4<CR>$/;"	m
+<localleader>6	ftplugin/vo_base.vim	/^map <buffer>   <localleader>6           :set foldlevel=5<CR>$/;"	m
+<localleader>7	ftplugin/vo_base.vim	/^map <buffer>   <localleader>7           :set foldlevel=6<CR>$/;"	m
+<localleader>8	ftplugin/vo_base.vim	/^map <buffer>   <localleader>8           :set foldlevel=7<CR>$/;"	m
+<localleader>9	ftplugin/vo_base.vim	/^map <buffer>   <localleader>9           :set foldlevel=8<CR>$/;"	m
+<localleader>=	plugin/vo_math.vim	/^map <buffer> <localleader>= :call ComputeDoc()<cr>$/;"	m
+<localleader>B	ftplugin/vo_base.vim	/^	map <localleader>B :%s\/\\(^\\t*\\) :\/\\1\/e<cr>:let @\/=""<cr>$/;"	m
+<localleader>B	ftplugin/vo_base.vim	/^	map <localleader>B :%s\/\\(^\\t*\\):\/\\1\/e<cr>:let @\/=""<cr>$/;"	m
+<localleader>D	ftplugin/vo_base.vim	/^nmap <buffer> <localleader>D ^:call InsertDate(1)<cr>a <esc>$/;"	m
+<localleader>H	ftplugin/vo_base.vim	/^imap <buffer> <localleader>H :echo "VimOutliner reserved command: ,,H"<cr>$/;"	m
+<localleader>H	ftplugin/vo_base.vim	/^map <buffer> <localleader>H :echo "VimOutliner reserved command: ,,H"<cr>$/;"	m
+<localleader>H	plugin/vo_hoist.vim	/^map <silent> <buffer> <localleader>H :call DeHoistThis(line("."))<cr>$/;"	m
+<localleader>S	ftplugin/vo_base.vim	/^map <buffer> <localleader>S :silent call SortChildren(1)<cr>$/;"	m
+<localleader>T	ftplugin/vo_base.vim	/^nmap <buffer> <localleader>T ^:call InsertTime(1)<cr>a <esc>$/;"	m
+<localleader>b	ftplugin/vo_base.vim	/^	map <localleader>b :%s\/\\(^\\t*\\) :\/\\1\/e<cr>:%s\/\\(^\\t*\\) \/\\1 : \/e<cr>:let @\/=""<cr>$/;"	m
+<localleader>b	ftplugin/vo_base.vim	/^	map <localleader>b :%s\/\\(^\\t*\\):\/\\1\/e<cr>:%s\/\\(^\\t*\\) \/\\1: \/e<cr>:let @\/=""<cr>$/;"	m
+<localleader>c%	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c% :call SafelyInsertCheckBoxPercent()<cr>$/;"	m
+<localleader>c%	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>c% :call SafeAddPercent()<cr>$/;"	m
+<localleader>c+	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c+ :call IncPercent(".")<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c-	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c- :call DecPercent(".")<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c1	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c1 :call SetPercent(".",10)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c2	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c2 :call SetPercent(".",20)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c3	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c3 :call SetPercent(".",30)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c4	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c4 :call SetPercent(".",40)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c5	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c5 :call SetPercent(".",50)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c6	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c6 :call SetPercent(".",60)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c7	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c7 :call SetPercent(".",70)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c8	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c8 :call SetPercent(".",80)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c9	plugin/vo_checkbox.vim	/^map <buffer> <localleader>c9 :call SetPercent(".",90)<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>c=	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>c= :call SafeAddTeam("=")<cr>$/;"	m
+<localleader>cB	plugin/vo_checkbox.vim	/^map <buffer> <localleader>cB :call InsertCheckBox()<cr>$/;"	m
+<localleader>cD	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cD :call InsertSwitch("-")<cr>$/;"	m
+<localleader>cb	plugin/vo_checkbox.vim	/^map <buffer> <localleader>cb :call SafelyInsertCheckBox()<cr>$/;"	m
+<localleader>cb	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cb :call InsertSwitch("_")<cr>$/;"	m
+<localleader>cd	plugin/vo_checkbox.vim	/^map <buffer> <localleader>cd :call DeleteCheckbox()<cr>$/;"	m
+<localleader>cd	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cd :call DeleteCheckbox()<cr>$/;"	m
+<localleader>cf	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cf :call SafeAddTeam(">")<cr>$/;"	m
+<localleader>cp	plugin/vo_checkbox.vim	/^map <buffer> <localleader>cp :call SafelyInsertCheckBoxPercentAlways()<cr>$/;"	m
+<localleader>cq	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cq :call InsertSwitch("?")<cr>$/;"	m
+<localleader>cw	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cw :call SafeAddTeam("<")<cr>$/;"	m
+<localleader>cx	plugin/vo_checkbox.vim	/^map <buffer> <localleader>cx :call SwitchBox()<cr>:call CalculateMyBranch(line("."))<cr>$/;"	m
+<localleader>cx	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cx :call InsertSwitch("X")<cr>:call NewHMD(FindRootParent(line(".")))<cr>$/;"	m
+<localleader>cz	plugin/vo_checkbox.vim	/^map <buffer> <localleader>cz :call NewHMD(FindRootParent(line(".")))<cr>$/;"	m
+<localleader>cz	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>cz :call NewHMD(FindRootParent(line(".")))<cr>$/;"	m
+<localleader>d	ftplugin/vo_base.vim	/^imap <buffer> <localleader>d ~<esc>x:call InsertDate(0)<cr>a$/;"	m
+<localleader>d	ftplugin/vo_base.vim	/^nmap <buffer> <localleader>d $:call InsertSpaceDate()<cr>$/;"	m
+<localleader>e		:call	ftplugin/vo_base.vim	/^nmap <buffer>   <localleader>e		:call Spawn()<cr>$/;"	m
+<localleader>f	ftplugin/vo_base.vim	/^imap <buffer> <localleader>f :e .<cr>$/;"	m
+<localleader>f	ftplugin/vo_base.vim	/^map <buffer> <localleader>f :e .<cr>$/;"	m
+<localleader>g%	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>g% :call InsertElem("[_] % ")<cr>$/;"	m
+<localleader>g=	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>g= :call InsertElem("[_,= ] ")<cr>$/;"	m
+<localleader>gD	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>gD :call InsertElem("[-] ")<cr>$/;"	m
+<localleader>gb	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>gb :call InsertElem("[_] ")<cr>$/;"	m
+<localleader>gf	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>gf :call InsertElem("[_,> ] ")<cr>$/;"	m
+<localleader>gq	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>gq :call InsertElem("[?] ")<cr>$/;"	m
+<localleader>gw	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>gw :call InsertElem("[_,< ] ")<cr>$/;"	m
+<localleader>gx	plugin/vo_gtd.vim	/^noremap <buffer> <localleader>gx :call InsertElem("[X] ")<cr>$/;"	m
+<localleader>h	ftplugin/vo_base.vim	/^imap <buffer> <localleader>h :echo "VimOutliner reserved command: ,,h"<cr>$/;"	m
+<localleader>h	ftplugin/vo_base.vim	/^map <buffer> <localleader>h :echo "VimOutliner reserved command: ,,h"<cr>$/;"	m
+<localleader>h	plugin/vo_hoist.vim	/^map <silent> <buffer> <localleader>h :call Hoist(line("."))<cr>$/;"	m
+<localleader>l	plugin/vo_tags.vim	/^	imap <unique> <buffer> <localleader>l <Plug>VO_CreateLinkI$/;"	m
+<localleader>l	plugin/vo_tags.vim	/^	map <unique> <buffer> <localleader>l <Plug>VO_CreateLink$/;"	m
+<localleader>s	ftplugin/vo_base.vim	/^map <buffer> <localleader>s :silent call SortChildren(0)<cr>$/;"	m
+<localleader>t	ftplugin/vo_base.vim	/^imap <buffer> <localleader>t ~<esc>x:call InsertTime(0)<cr>a$/;"	m
+<localleader>t	ftplugin/vo_base.vim	/^nmap <buffer> <localleader>t $:call InsertSpaceTime()<cr>$/;"	m
+<localleader>w	ftplugin/vo_base.vim	/^map! <buffer>  <localleader>w           <Esc>:w<CR>a$/;"	m
+AddChildren	plugin/vo_hoist.vim	/^function! AddChildren(line)$/;"	f
+AddHoistFilename	plugin/vo_hoist.vim	/^function! AddHoistFilename(line)$/;"	f
+BodyText	ftplugin/vo_base.vim	/^function! BodyText(line)$/;"	f
+CalculateMyBranch	plugin/vo_checkbox.vim	/^function! CalculateMyBranch(line)$/;"	f
+CalculateMyChildren	plugin/vo_checkbox.vim	/^function! CalculateMyChildren(line)$/;"	f
+CompHead	ftplugin/vo_base.vim	/^function! CompHead(line)$/;"	f
+Compute	plugin/vo_math.vim	/^function! Compute(lnum)$/;"	f
+ComputeDoc	plugin/vo_math.vim	/^function! ComputeDoc()$/;"	f
+ComputeLine	plugin/vo_math.vim	/^function! ComputeLine(lnum,dict)$/;"	f
+ComputePW	plugin/vo_checkbox.vim	/^function! ComputePW(line,count,done)$/;"	f
+ComputeString	plugin/vo_math.vim	/^function! ComputeString(line,dict)$/;"	f
+ComputeThis	plugin/vo_math.vim	/^function! ComputeThis()$/;"	f
+DeHoist	plugin/vo_hoist.vim	/^function! DeHoist()$/;"	f
+DeHoistThis	plugin/vo_hoist.vim	/^function! DeHoistThis(line)$/;"	f
+DecPercent	plugin/vo_checkbox.vim	/^function! DecPercent(line)$/;"	f
+DelHead	ftplugin/vo_base.vim	/^function! DelHead(line)$/;"	f
+DeleteCheckbox	plugin/vo_checkbox.vim	/^function! DeleteCheckbox()$/;"	f
+DeleteCheckbox	plugin/vo_gtd.vim	/^function! DeleteCheckbox()$/;"	f
+DeleteChildren	plugin/vo_hoist.vim	/^function! DeleteChildren(line)$/;"	f
+DeleteHoistFile	plugin/vo_hoist.vim	/^function! DeleteHoistFile(line)$/;"	f
+DeleteHoistFilename	plugin/vo_hoist.vim	/^function! DeleteHoistFilename(line)$/;"	f
+EvalFormula	plugin/vo_math.vim	/^function! EvalFormula(line)$/;"	f
+ExtractHoistFilename	plugin/vo_hoist.vim	/^function! ExtractHoistFilename(line)$/;"	f
+FindLastChild	ftplugin/vo_base.vim	/^function! FindLastChild(line)$/;"	f
+FindLastChild	plugin/vo_hoist.vim	/^function! FindLastChild(line)$/;"	f
+FindMyParent	plugin/vo_checkbox.vim	/^function! FindMyParent(line)$/;"	f
+FindParent	ftplugin/vo_base.vim	/^function! FindParent(line)$/;"	f
+FindParent	plugin/vo_hoist.vim	/^function! FindParent(line)$/;"	f
+FindRootParent	plugin/vo_checkbox.vim	/^function! FindRootParent(line)$/;"	f
+FindRootParent	plugin/vo_gtd.vim	/^function! FindRootParent(line)$/;"	f
+GetFormula	plugin/vo_math.vim	/^function! GetFormula(line)$/;"	f
+GetPercent	plugin/vo_checkbox.vim	/^function! GetPercent(line)$/;"	f
+GetTuple	plugin/vo_math.vim	/^function! GetTuple(line)$/;"	f
+GetValue	plugin/vo_math.vim	/^function! GetValue(line)$/;"	f
+GetVarVal	plugin/vo_math.vim	/^function! GetVarVal(line)$/;"	f
+GetVariable	plugin/vo_math.vim	/^function! GetVariable(line)$/;"	f
+HandleFormula	plugin/vo_math.vim	/^function! HandleFormula(line)$/;"	f
+HandleLineFormula	plugin/vo_math.vim	/^function! HandleLineFormula(lnum)$/;"	f
+HasFormula	plugin/vo_math.vim	/^function! HasFormula(line)$/;"	f
+Hoist	plugin/vo_hoist.vim	/^function! Hoist(line)$/;"	f
+IncPercent	plugin/vo_checkbox.vim	/^function! IncPercent(line)$/;"	f
+Ind	ftplugin/vo_base.vim	/^function! Ind(line)$/;"	f
+Ind	plugin/vo_checkbox.vim	/^function! Ind(line)$/;"	f
+Ind	plugin/vo_gtd.vim	/^function! Ind(line)$/;"	f
+InsertCheckBox	plugin/vo_checkbox.vim	/^function! InsertCheckBox()$/;"	f
+InsertDate	ftplugin/vo_base.vim	/^function! InsertDate(ba)$/;"	f
+InsertElem	plugin/vo_gtd.vim	/^function! InsertElem(elem)$/;"	f
+InsertSpaceDate	ftplugin/vo_base.vim	/^function! InsertSpaceDate()$/;"	f
+InsertSpaceTime	ftplugin/vo_base.vim	/^function! InsertSpaceTime()$/;"	f
+InsertSwitch	plugin/vo_gtd.vim	/^function! InsertSwitch(elem)$/;"	f
+InsertTime	ftplugin/vo_base.vim	/^function! InsertTime(ba)$/;"	f
+IsHoistParent	plugin/vo_hoist.vim	/^function! IsHoistParent(line)$/;"	f
+IsParent	ftplugin/vo_base.vim	/^function! IsParent(line)$/;"	f
+IsParent	plugin/vo_hoist.vim	/^function! IsParent(line)$/;"	f
+IsParent	plugin/vo_smart_paste.vim	/^function! IsParent(line)$/;"	f
+LimitPercent	plugin/vo_checkbox.vim	/^function! LimitPercent(val)$/;"	f
+MakeChars	ftplugin/vo_base.vim	/^function! MakeChars(count,char)$/;"	f
+MakeDashes	ftplugin/vo_base.vim	/^function! MakeDashes(count)$/;"	f
+MakeSpaces	ftplugin/vo_base.vim	/^function! MakeSpaces(count)$/;"	f
+MakeTabString	plugin/vo_hoist.vim	/^function! MakeTabString(n)$/;"	f
+MakeTempFilename	plugin/vo_hoist.vim	/^function! MakeTempFilename(line)$/;"	f
+MoveDown	ftplugin/vo_base.vim	/^function! MoveDown()$/;"	f
+NewHMD	plugin/vo_checkbox.vim	/^function! NewHMD(line)$/;"	f
+NewHMD	plugin/vo_gtd.vim	/^function! NewHMD(line)$/;"	f
+NextHead	ftplugin/vo_base.vim	/^function! NextHead(line)$/;"	f
+P	plugin/vo_smart_paste.vim	/^map <buffer>P ]P$/;"	m
+PreformattedBodyText	ftplugin/vo_base.vim	/^function! PreformattedBodyText(line)$/;"	f
+PreformattedTable	ftplugin/vo_base.vim	/^function! PreformattedTable(line)$/;"	f
+PreformattedUserText	ftplugin/vo_base.vim	/^function! PreformattedUserText(line)$/;"	f
+PreformattedUserTextLabeled	ftplugin/vo_base.vim	/^function! PreformattedUserTextLabeled(line)$/;"	f
+PreformattedUserTextSpace	ftplugin/vo_base.vim	/^function! PreformattedUserTextSpace(line)$/;"	f
+PutHead	ftplugin/vo_base.vim	/^function! PutHead(line)$/;"	f
+RemoveTabsLine	plugin/vo_hoist.vim	/^function! RemoveTabsLine(line,tabs)$/;"	f
+ReplaceValue	plugin/vo_math.vim	/^function! ReplaceValue(line,num)$/;"	f
+ReplaceVars	plugin/vo_math.vim	/^function! ReplaceVars(formula,dict)$/;"	f
+SafeAddPercent	plugin/vo_gtd.vim	/^function! SafeAddPercent()$/;"	f
+SafeAddTeam	plugin/vo_gtd.vim	/^function! SafeAddTeam(elem)$/;"	f
+SafelyInsertCheckBox	plugin/vo_checkbox.vim	/^function! SafelyInsertCheckBox()$/;"	f
+SafelyInsertCheckBoxPercent	plugin/vo_checkbox.vim	/^function! SafelyInsertCheckBoxPercent()$/;"	f
+SafelyInsertCheckBoxPercentAlways	plugin/vo_checkbox.vim	/^function! SafelyInsertCheckBoxPercentAlways()$/;"	f
+SetPercent	plugin/vo_checkbox.vim	/^function! SetPercent(line,proportion)$/;"	f
+Sort1Line	ftplugin/vo_base.vim	/^function! Sort1Line(line,dir)$/;"	f
+Sort1Pass	ftplugin/vo_base.vim	/^function! Sort1Pass(fstart,fend,dir)$/;"	f
+SortChildren	ftplugin/vo_base.vim	/^function! SortChildren(dir)$/;"	f
+SortRange	ftplugin/vo_base.vim	/^function! SortRange(fstart,fend,dir)$/;"	f
+Spawn	ftplugin/vo_base.vim	/^function! Spawn()$/;"	f
+SwitchBox	plugin/vo_checkbox.vim	/^function! SwitchBox()$/;"	f
+UserText	ftplugin/vo_base.vim	/^function! UserText(line)$/;"	f
+UserTextLabeled	ftplugin/vo_base.vim	/^function! UserTextLabeled(line)$/;"	f
+UserTextSpace	ftplugin/vo_base.vim	/^function! UserTextSpace(line)$/;"	f
+VO_FoldLevel	ftplugin/vo_base.vim	/^function! VO_FoldLevel(line)$/;"	f
+VO_FoldText	ftplugin/vo_base.vim	/^function! VO_FoldText()$/;"	f
+VOput	plugin/vo_smart_paste.vim	/^function! VOput()$/;"	f
+appendTagToTagFile	scripts/vo_maketags.pl	/^sub appendTagToTagFile($$)$/;"	s
+autocommand_vo_loaded	ftplugin/vo_base.vim	/^	let autocommand_vo_loaded = 1$/;"	v
+autocommand_vo_loaded	syntax/vo_base.vim	/^	let autocommand_vo_loaded = 1$/;"	v
+b:current_syntax	ftplugin/vo_base.vim	/^let b:current_syntax = "outliner"$/;"	v
+b:lnum	plugin/vo_math.vim	/^let b:lnum = 0$/;"	v
+beautifyLine	add-ons/scripts/otl2html.py	/^def beautifyLine(line):$/;"	f
+closeLevels	add-ons/scripts/otl2html.py	/^def closeLevels():$/;"	f
+colonStrip	add-ons/scripts/otl2html.py	/^def colonStrip(line):$/;"	f
+copydir	install.sh	/^function copydir {$/;"	f
+copyfile	install.sh	/^function copyfile {$/;"	f
+createCSS	add-ons/scripts/otl2html.py	/^def createCSS():$/;"	f
+create_link	plugin/vo_tags.vim	/^function s:create_link()$/;"	f
+dashStrip	add-ons/scripts/otl2html.py	/^def dashStrip(line):$/;"	f
+deleteDoubleDots	scripts/vo_maketags.pl	/^sub deleteDoubleDots($)$/;"	s
+deriveAbsoluteFileName	scripts/vo_maketags.pl	/^sub deriveAbsoluteFileName($$)$/;"	s
+dia	scripts/vo_maketags.pl	/^sub dia($)$/;"	s
+divName	add-ons/scripts/otl2html.py	/^def divName(line):$/;"	f
+fileExists	scripts/vo_maketags.pl	/^sub fileExists($)$/;"	s
+flatten	add-ons/scripts/otl2html.py	/^def flatten(idx):$/;"	f
+follow_link	plugin/vo_tags.vim	/^function s:follow_link()$/;"	f
+g:colors_name	colors/vo_dark.vim	/^let g:colors_name="VO Dark"$/;"	v
+g:colors_name	colors/vo_light.vim	/^let g:colors_name="VO Light"$/;"	v
+g:did_vo_hoist	plugin/vo_hoist.vim	/^let g:did_vo_hoist = 1$/;"	v
+g:hoistParanoia	plugin/vo_hoist.vim	/^	let g:hoistParanoia=0$/;"	v
+g:reBox	plugin/vo_gtd.vim	/^let g:reBox     = "[\\[X_?-\\]"$/;"	v
+g:reOutline	plugin/vo_gtd.vim	/^let g:reOutline = "^\\t\\+\\[<>:;|\\]"$/;"	v
+g:rePercent	plugin/vo_gtd.vim	/^let g:rePercent = "\\\\d*% "$/;"	v
+g:reTeam	plugin/vo_gtd.vim	/^let g:reTeam    = ",\\[<>=\\] \\[^]\\]*"$/;"	v
+getArgs	add-ons/scripts/otl2html.py	/^def getArgs():$/;"	f
+getBaseDirectory	scripts/vo_maketags.pl	/^sub getBaseDirectory($)$/;"	s
+getColumnAlignment	add-ons/scripts/otl2html.py	/^def getColumnAlignment(coldata):$/;"	f
+getFileNameOnly	scripts/vo_maketags.pl	/^sub getFileNameOnly($)$/;"	s
+getLineLevel	add-ons/scripts/otl2html.py	/^def getLineLevel(linein):$/;"	f
+getLineTextLevel	add-ons/scripts/otl2html.py	/^def getLineTextLevel(linein):$/;"	f
+getTagsFromFile	scripts/vo_maketags.pl	/^sub getTagsFromFile($)$/;"	s
+getTitleText	add-ons/scripts/otl2html.py	/^def getTitleText(line):$/;"	f
+get_absolute_path	plugin/vo_tags.vim	/^function! s:get_absolute_path(baseDir, fileName)$/;"	f
+handleBodyText	add-ons/scripts/otl2html.py	/^def handleBodyText(linein,lineLevel):$/;"	f
+handlePreformattedText	add-ons/scripts/otl2html.py	/^def handlePreformattedText(linein,lineLevel):$/;"	f
+handleTable	add-ons/scripts/otl2html.py	/^def handleTable(linein,lineLevel):$/;"	f
+handleTableColumns	add-ons/scripts/otl2html.py	/^def handleTableColumns(linein,lineLevel):$/;"	f
+handleTableHeaders	add-ons/scripts/otl2html.py	/^def handleTableHeaders(linein,lineLevel):$/;"	f
+handleTableRow	add-ons/scripts/otl2html.py	/^def handleTableRow(linein,lineLevel):$/;"	f
+isAbsoluteFilePath	scripts/vo_maketags.pl	/^sub isAbsoluteFilePath($)$/;"	s
+isAlignCenter	add-ons/scripts/otl2html.py	/^def isAlignCenter(coldata):$/;"	f
+isAlignLeft	add-ons/scripts/otl2html.py	/^def isAlignLeft(coldata):$/;"	f
+isAlignRight	add-ons/scripts/otl2html.py	/^def isAlignRight(coldata):$/;"	f
+jump_back	plugin/vo_tags.vim	/^function! s:jump_back()$/;"	f
+linkOrImage	add-ons/scripts/otl2html.py	/^def linkOrImage(line):$/;"	f
+loaded_steveoutliner_functions	ftplugin/vo_base.vim	/^	let loaded_steveoutliner_functions=1$/;"	v
+loaded_vimoutliner_functions	ftplugin/vo_base.vim	/^let loaded_vimoutliner_functions=1$/;"	v
+main	add-ons/scripts/otl2html.py	/^def main():$/;"	f
+makeDirectory	scripts/vo_maketags.pl	/^sub makeDirectory($)$/;"	s
+makeEmptyFile	scripts/vo_maketags.pl	/^sub makeEmptyFile($)$/;"	s
+makeTagFileStartingAt	scripts/vo_maketags.pl	/^sub makeTagFileStartingAt($)$/;"	s
+make_dir	install.sh	/^function make_dir {$/;"	f
+maplocalleader	ftplugin/vo_base.vim	/^let maplocalleader = ",,"		" this is prepended to VO key mappings$/;"	v
+notProcessedYet	scripts/vo_maketags.pl	/^sub notProcessedYet($$)$/;"	s
+p	plugin/vo_smart_paste.vim	/^map <buffer>p :call VOput()<cr>$/;"	m
+pipeStrip	add-ons/scripts/otl2html.py	/^def pipeStrip(line):$/;"	f
+plusStrip	add-ons/scripts/otl2html.py	/^def plusStrip(line):$/;"	f
+printFirstLine	add-ons/scripts/otl2html.py	/^def printFirstLine(linein):$/;"	f
+printFooter	add-ons/scripts/otl2html.py	/^def printFooter():$/;"	f
+printHeader	add-ons/scripts/otl2html.py	/^def printHeader(linein):$/;"	f
+process1Outline	scripts/vo_maketags.pl	/^sub process1Outline($$)$/;"	s
+processLine	add-ons/scripts/otl2html.py	/^def processLine(linein):$/;"	f
+recordFileAsProcessed	scripts/vo_maketags.pl	/^sub recordFileAsProcessed($$)$/;"	s
+remove_buf	plugin/vo_tags.vim	/^function! s:remove_buf()$/;"	f
+s:from_home	ftplugin/vo_base.vim	/^let s:from_home = glob(expand('$HOME').'\/.vimoutliner') != ''$/;"	v
+s:idx	ftplugin/vo_base.vim	/^	let s:idx = stridx(s:tmp, ':')$/;"	v
+s:idx	ftplugin/vo_base.vim	/^let s:idx = stridx(s:tmp, ':')$/;"	v
+s:loaded	plugin/vo_math.vim	/^let s:loaded = 1$/;"	v
+s:loaded	plugin/vo_tags.vim	/^let s:loaded = 1$/;"	v
+s:part	ftplugin/vo_base.vim	/^	let s:part = strpart(s:tmp, 0, s:idx)$/;"	v
+s:pluginsdir	ftplugin/vo_base.vim	/^	let s:pluginsdir = 'plugin'$/;"	v
+s:pluginsdir	ftplugin/vo_base.vim	/^	let s:pluginsdir = 'plugins'$/;"	v
+s:tmp	ftplugin/vo_base.vim	/^	let s:tmp = strpart(s:tmp, s:idx + 1)$/;"	v
+s:tmp	ftplugin/vo_base.vim	/^let s:tmp = g:vo_modules_load . ':'$/;"	v
+semicolonStrip	add-ons/scripts/otl2html.py	/^def semicolonStrip(line):$/;"	f
+showSyntax	add-ons/scripts/otl2html.py	/^def showSyntax():$/;"	f
+showUsage	add-ons/scripts/otl2html.py	/^def showUsage():$/;"	f
+showVersion	add-ons/scripts/otl2html.py	/^def showVersion():$/;"	f
+sortAndDeleteDupsFromTagFile	scripts/vo_maketags.pl	/^sub sortAndDeleteDupsFromTagFile()$/;"	s
+stripTitleText	add-ons/scripts/otl2html.py	/^def stripTitleText(line):$/;"	f
+sure	install.sh	/^function sure? {$/;"	f
+update_jump_list	plugin/vo_tags.vim	/^function! s:update_jump_list()$/;"	f
+usage	scripts/vo_maketags.pl	/^sub usage()$/;"	s
+use_space_colon	ftplugin/vo_base.vim	/^let use_space_colon=0$/;"	v
+vo_links	plugin/vo_tags.vim	/^augroup vo_links$/;"	a
+vo_tagfile	ftplugin/vo_base.vim	/^	let vo_tagfile = expand("<sfile>:p:h:h").'\/vimoutliner\/vo_tags.tag'$/;"	v
+vo_tagfile	ftplugin/vo_base.vim	/^let vo_tagfile = expand('$HOME').'\/.vimoutliner\/vo_tags.tag'$/;"	v
+w:vo_jump_list	plugin/vo_tags.vim	/^	let w:vo_jump_list = []$/;"	v

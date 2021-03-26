@@ -1,0 +1,31 @@
+"inish
+if has('gui_macvim')
+  set fuoptions=maxvert,maxhorz " Full-screen mode uses the full screen
+  ":h macvim-shift-movement
+  let macvim_hig_shift_movement = 1
+  set columns=90 lines=60
+  set transparency=0
+
+  command! -nargs=? -count=0 -complete=buffer -bar Wide call WideScreen(<count>, <f-args>)
+  function! WideScreen(full, ...)
+    let times = a:full ? 100 : 2
+    silent! let &columns = &columns * times
+    if a:0 > 0
+      vsp
+      exec "b ".a:1
+    endif
+    wincmd =
+  endfunction
+endif
+
+set regexpengine=1
+" Text confirm dialogs are ok.
+set guioptions+=c
+" No toolbar for me.
+set guioptions-=T
+" No scrollbars.
+set go-=l
+set go-=L
+set go-=r
+set go-=R
+set go-=b

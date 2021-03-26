@@ -1,0 +1,455 @@
+" Options: {{{1
+" Use :help 'option (including the ' character) to learn more about each one.
+
+" my $SHELL is fish
+set shell=sh
+
+" If this is on, it might interfere with pathogen:
+filetype off
+
+" Let pathogen perform its magic:
+source ~/.vim/bundle/pathogen/autoload/pathogen.vim
+
+" Set runtimepath
+exe pathogen#infect('bundle', 'test')
+
+filetype plugin indent on " Enable automatic settings based on file type
+if !exists('g:syntax_on')
+  syntax enable           " Enable color syntax highlighting
+endif
+
+" Search upwards for the tags file. :h file-searching
+set tags=./tags;
+
+set hidden  " Edit multiple unsaved files at the same time
+set confirm " Prompt to save unsaved changes when exiting
+"set nomore  " Don't ask me to show more output
+
+" Keep various histories between edits
+set viminfo='1000,f1,<500,:100,/100,h
+set history=1000
+
+if has('multi_byte')
+  set encoding=utf-8
+endif
+
+" Search Options:
+set hlsearch   " Highlight searches. See below for more.
+set ignorecase " Do case insensitive matching...
+set smartcase  " ...except when using capital letters
+set incsearch  " Incremental search
+
+" Insert Edit Options:
+set backspace=indent,eol,start " Better handling of backspace key
+set formatoptions-=r " Do not insert a comment leader after hitting <Enter>
+set formatoptions+=j
+set cpoptions+=$
+
+set nostartofline     " Emulate typical editor navigation behaviour
+set pastetoggle=<f11> " Use <F11> to toggle between 'paste' and 'nopaste'
+"set nrformats+=alpha  " make Ctrl-A/Ctrl-x work on alphabetic chars.
+
+" Status And Command Line Options:
+set wildmenu                   " Better commandline completion
+set wildmode=list:longest,full " Expand match on first Tab complete
+set wildchar=<Tab>
+set showcmd      " Show (partial) command in status line.
+set showmode     " Display the current mode
+set laststatus=2 " Always show a status line
+set cmdheight=2  " Prevent "Press Enter" message after most commands
+" Show detailed information in status line
+runtime stl_bloated.vim
+
+" Interface Options:
+"set cursorline
+set display=lastline
+set background=dark " Use a dark background
+"set background=light " Use a dark background
+set number           " Display line numbers at left of screen
+set visualbell       " Flash the screen instead of beeping on errors
+set t_vb=            " And then disable even the flashing
+set mouse=a          " Enable mouse usage (all modes) in terminals
+set scrolloff=2      " Number of screen lines to show around the cursor
+set updatetime=300
+set lazyredraw
+
+" Quickly time out on keycodes, but never time out on mappings
+set timeout ttimeout ttimeoutlen=200
+set linebreak
+
+" Catch trailing whitespace
+set listchars=
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = printf('tab:%s%s,trail:%s,eol:%s,space:%s',
+        \ nr2char(9656), nr2char(8211), nr2char(9608),
+        \ nr2char(172), nr2char(183))
+  "exec 'set listchars+=tab:' . nr2char(9656) . nr2char(8211) '\ ,trail:' . nr2char(9608)
+        "\ . ',eol:' . nr2char(172),space:nr2char(183)
+else
+  set listchars+=tab:\|_,trail:^
+endif
+
+set splitright " Open new split windows on the right side.
+
+" have the h, l and cursor keys wrap between lines, as well as <Space> and
+" <BackSpace>, and ~ convert case over line breaks; also have the cursor keys
+" wrap in insert mode:
+set whichwrap=b,s,h,l,~,<,>,[,]
+
+" Indentation Options:
+set shiftwidth=2 softtabstop=0 " Number of spaces for each indent level
+set expandtab " Even when pressing <Tab>
+set autoindent " Sane indenting when filetype not recognised
+set shiftround " Always use a multiple of shiftwidth.
+if exists('&breakindent')
+  set breakindent
+  set breakindentopt=shift:4
+  set showbreak=
+endif
+
+" Persistent undo:
+if has('persistent_undo')
+    set undofile
+endif
+
+" Use ack instead of grep
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+elseif executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+elseif executable('ack')
+  set grepprg=ack\ $@\ --column
+  set grepformat=%f:%l:%c:%m
+endif
+
+if exists('&splitvertical')
+  set nosplitvertical
+endif
+
+" Define mapleader
+let mapleader = '-'
+
+" Set terminal title
+set title
+
+set sessionoptions-=options
+
+"if !has('gui_running') && $TERM_PROGRAM == 'iTerm.app'
+"  " Change cursor shape
+"  " 0: Block
+"  " 1: Vertical bar
+"  " 2: Underline
+"  if exists('$TMUX')
+"    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+"    "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"    "let &t_EI = "\<Esc>]50;CursorShape=2\x7"
+"    set <HOME>=OH
+"    set <END>=OF
+"  else
+"    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"    let &t_EI = "\<Esc>]50;CursorShape=2\x7"
+"  endif
+"endif
+
+" Folding:
+set foldenable
+set foldmethod=marker
+
+" Fix mouse issues in iTerm2 with wide windows.
+if $TERM_PROGRAM ==? 'iTerm.app'
+  if has('termguicolors')
+    set termguicolors
+    if !empty($TMUX)
+      set t_8f=[38;2;%lu;%lu;%lum
+      set t_8b=[48;2;%lu;%lu;%lum
+    endif
+  endif
+  if has('mouse_sgr') && !has('gui_running')
+    set ttymouse=sgr
+  endif
+endif
+
+" Maps: {{{1
+
+" map Y to act like d and c, i.e. to yank until eol, rather than act as yy,
+" which is the default
+noremap Y y$
+
+" map <c-l> (redraw screen) to also turn off search highlighting until the
+" next search
+nnoremap <silent><c-l> :nohl<cr><c-l><plug>mashunmash
+
+" always edit a file on gf, but be nice and ask
+noremap gf :<C-U>call GoFile()<cr>
+
+" Prevent me from typing a nbs
+inoremap <Char-0xa0> <C-O>:echo 'That was a NBS you idiot!'<CR>
+
+" Clean window
+"nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" Nicer ls
+nnoremap <leader>b :<C-U>ls<CR>:b<Space>
+
+" Make U do something useful
+nnoremap U :<C-U>echoerr "You just entered U, is CAPSLOCK ON?, Idiot!"<CR>
+
+nnoremap <Leader>si :echo <SID>SynInfo()<CR>
+if exists('*synstack')
+  nnoremap <leader>ss :<C-U>echo join(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), ' => ')<CR>
+endif
+
+" Auto Commads: {{{1
+
+if has('autocmd')
+  augroup vimrc
+    " Remove ALL autocommands for the current group.
+    autocmd!
+
+    " No warning about more files to edit
+    " https://www.reddit.com/r/vim/comments/1vqj4l/is_it_possible_to_silence_e173_n_more_files_to/ceuuu3p/
+    "au VimEnter * if argc() | silent bprev | silent bnext | endif
+
+    " Enable omni-completion by default
+    if has('autocmd') && exists('+omnifunc')
+      autocmd Filetype *
+            \   if &omnifunc == '' |
+            \       setlocal omnifunc=syntaxcomplete#Complete |
+            \   endif
+    endif
+
+    " Enable extended % matching
+    au VimEnter * au FileType * if !exists('b:match_words')
+          \ | let b:match_words = &matchpairs | endif
+
+    " Don't write backup file if vim is being called by "crontab -e"
+    "au BufWrite crontab.* set nowritebackup
+    au BufEnter crontab.* setl backupcopy=yes
+
+    " Jump to last-known-position when editing files
+    " Note: The | character is used in Vim as a command separator (like ; in
+    " C)
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+          \ && expand('%:t') !=? 'commit_editmsg' | exe "normal! g`\"" |
+          \ endif
+
+    au FileType lisp let b:delimitMate_balance_matchpairs = 0 |
+          \ let b:delimitMate_quotes = '" *'
+
+    au InsertLeave,BufWritePre bike_log.csv let s:pos = getpos('.')
+          \ |exec 'Tabularize /|/'
+          \ |call setpos('.', s:pos)
+    au BufEnter bike_log.csv command! -buffer  Export enew |
+          \ silent 0read # | $d | silent %s/"/""/ge |
+          \ silent %s/\s\+|\s\+/","/g | silent %s/^\|$/"/g |
+          \ call feedkeys(':write ', 'n') |
+          \ ino <buffer><silent> <bar>
+          \   <bar><C-O>:Tabularize /<bar>/<CR><Esc>A
+
+    au BufRead,BufNewFile Portfile set ft=tcl
+    au BufWritePost *.vim if exists('viml_source') | source <afile> | endif
+  augroup END
+endif
+
+" Plugins Settings: {{{1
+
+" Enable extended % matching
+runtime macros/matchit.vim
+
+" Templates:
+let username = 'Israel Chauca F.'
+let email = 'israelchauca@gmail.com'
+
+"Edit file in existing vim automatically
+"runtime! macros/editexisting.vim
+
+" Where to find rgb.txt:
+let g:rgbtxt = expand('$HOME/.vim/rgb.txt')
+
+" NERDCommenter makes too much noise:
+let g:NERDShutUp = 1
+
+" NetRW
+let netrw_banner = 0
+let netrw_browse_split = 4 " Open in prior window
+let netrw_altv = 1         " Open splits on the right
+let netrw_liststyle = 3        " Tree view
+
+
+" NERDTree:
+let NERDTreeChDirMode = 2
+let NERDTreeHijackNetrw = 0
+
+" DelimitMate:
+"let delimitMate_autoclose = 0
+"let loaded_delimitMate = 1
+"let delimitMate_testing = "fork"
+"let delimitMate_excluded_ft = "mailapp"
+let delimitMate_expand_space = 1
+let delimitMate_expand_cr = 1
+let delimitMate_balance_matchpairs = 1
+let delimitMate_nesting_quotes = ['"']
+"let delimitMate_eol_marker = ';'
+let delimitMate_jump_expansion = 1
+"let loaded_traces_plugin = 1
+
+" Lisp coloring of parens
+let g:lisp_rainbow = 1
+
+" Startify
+let g:startify_custom_header =
+      \ map(
+      \   map(
+      \     split(system('fortune -a | cowsay'), '\n')
+      \     , '''   ''. v:val'),
+      \   'substitute(v:val, ''[[:cntrl:]]'', '''', ''g'')')
+      \ + ['','']
+let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions']
+let g:startify_bookmarks = ['~/.vimrc']
+let g:startify_change_to_vcs_root = 1
+let g:startify_skiplist = [
+      \ 'COMMIT_EDITMSG',
+      \ '.*/doc',
+      \ $VIMRUNTIME . '/doc',
+      \ '.viminfo',
+      \ '.DS_Store',
+      \ ]
+
+" Undotree:
+let undotree_DiffCommand = 'diff -u'
+let undotree_WindowLayout = 2
+let undotree_TreeNodeShape = 'o'
+let undotree_DiffpanelHeight = 15
+
+let lion_squeeze_spaces = 1
+
+let relab_debug = 0
+let relab_set_mappings = 1
+
+let yaifa_debug = 1
+
+" Ale:
+let g:ale_rust_rls_config = {
+      \ 'rust': {
+      \ 'all_targets': 1,
+      \ 'build_on_save': 1,
+      \ 'clippy_preference': 'on'
+      \ }
+      \ }
+let g:ale_rust_rls_toolchain = ''
+let g:ale_rust_rls_executable = 'rust-analyzer'
+let g:ale_linters = {
+      \ 'rust': ['rls']
+      \ }
+let g:ale_fixers = {
+      \ 'rust': ['rustfmt']
+      \ }
+
+" Functions: {{{1
+
+function! s:SynNames()
+  let syn = {}
+  let lnum = line('.')
+  let cnum = col('.')
+  let [effective, visual] = [synID(lnum, cnum, 0), synID(lnum, cnum, 1)]
+  let syn.effective = synIDattr(effective, 'name')
+  let syn.effective_link = synIDattr(synIDtrans(effective), 'name')
+  let syn.visual = synIDattr(visual, 'name')
+  let syn.visual_link = synIDattr(synIDtrans(visual), 'name')
+  return syn
+endfunction
+
+function! s:SynInfo()
+  let syn = s:SynNames()
+  let info = ''
+  if !empty(syn.visual)
+    let info .= printf('visual: %s', syn.visual)
+    if syn.visual != syn.visual_link
+      let info .= printf(' (as %s)', syn.visual_link)
+    endif
+  endif
+  if syn.effective != syn.visual
+    if !empty(syn.visual)
+      let info .= ', '
+    endif
+    let info .= printf('effective: %s', syn.effective)
+    if syn.effective != syn.effective_link
+      let info .= printf(' (as %s)', syn.effective_link)
+    endif
+  endif
+  return info
+endfunction
+
+function! GoFile()
+  try
+    normal! gf
+  catch /^Vim\%((\a\+)\)\=:E447/
+    let q = substitute(v:exception,'^Vim\%((\a\+)\)\=:E\d\+: \(.*\)','\1','')
+          \ . ', would you like to create it?'
+    try
+      buffer <cfile>
+    catch /^Vim\%((\a\+)\)\=:E94/
+      if confirm(q ,"&Yes\n&No\n&Cancel",3) == 1
+        exec 'edit '.expand('%:p:h').'/'.expand('<cfile>')
+      endif
+    endtry
+  endtry
+endfunction
+
+function! s:list_complete(arglead, cmdline, curpos)
+  return ['eol', 'tab', 'space', 'trail', 'extends', 'precedes',
+        \ 'conceal', 'nbsp']
+endfunction
+
+function! s:set_list(...)
+set listchars=
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let listchars = {
+        \ 'eol': nr2char(182),
+        \ 'tab': nr2char(9656) . nr2char(8211),
+        \ 'space': nr2char(183),
+        \ 'trail': nr2char(9608),
+        \ 'extends': nr2char(8230),
+        \ 'precedes': nr2char(8230),
+        \ 'conceal': '+',
+        \ 'nbsp': nr2char(9608),
+        \}
+else
+  let listchars = {
+        \ 'eol': '$',
+        \ 'tab': '|-',
+        \ 'space': '.',
+        \ 'trail': '#',
+        \ 'extends': '>',
+        \ 'precedes': '<',
+        \ 'conceal': '+',
+        \ 'nbsp': '#',
+        \}
+endif
+let chars = join(map(filter(copy(a:000), 'has_key(listchars, v:val)'),
+      \ {key, val -> printf('%s:%s', val, listchars[val])}), ',')
+let &listchars = chars
+set list
+endfunction
+" Commands: {{{1
+
+command! -complete=customlist,s:list_complete -nargs=+
+      \ List call s:set_list(<f-args>)
+command! Vimrc e ~/.vimrc
+
+command! -nargs=? Test exec printf('e ~/playground/test.%s',
+      \ (empty(<q-args>) ? 'vim' : <q-args>))
+
+" Various: {{{1
+"colorscheme paradigm_currentterm
+colorscheme desert
+"colorscheme off
+"colorscheme railscasts
+"colorscheme alduin
+"colorscheme blues
+"colorscheme distill
+"colorscheme aquamarine
+
+" vim: set et sw=2:{{{1

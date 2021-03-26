@@ -1,0 +1,226 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$line_break\
+$lua\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
+[username]
+disabled = false
+format = "[$user]($style) "
+
+[hostname]
+disabled = false
+format = "at [$hostname]($style) "
+
+[time]
+disabled = true
+
+[status]
+disabled = false
+#style = "bg:red"
+#format = '[\[$status\]]($style) '
+
+[shlvl]
+disabled = false
+#symbol = 'lvl'
+
+[directory]
+disabled = false
+#truncation_symbol = '…/'
+
+[hg_branch]
+disabled = false
+#symbol = ''
+
+[git_branch]
+disabled = false
+#symbol = ''
+
+[git_commit]
+disabled = false
+tag_disabled = false
+
+[jobs]
+symbol = '+'
+
+[cmd_duration]
+disabled = false
+show_milliseconds = true
+show_notifications = true
+
+
+[kubernetes]
+disabled = false
+
+[git_state]
+disabled = false
+
+[git_status]
+disabled = false
+
+[docker_context]
+disabled = false
+
+[package]
+disabled = false
+
+[cmake]
+disabled = false
+
+[dart]
+disabled = false
+
+[dotnet]
+disabled = false
+
+[elixir]
+disabled = false
+
+[elm]
+disabled = false
+
+[erlang]
+disabled = false
+
+[golang]
+disabled = false
+
+[helm]
+disabled = false
+
+[java]
+disabled = false
+
+[julia]
+disabled = false
+
+[kotlin]
+disabled = false
+
+[nim]
+disabled = false
+
+[nodejs]
+disabled = false
+
+[ocaml]
+disabled = false
+
+[perl]
+disabled = false
+
+[php]
+disabled = false
+
+[purescript]
+disabled = false
+
+[python]
+disabled = false
+
+[ruby]
+disabled = false
+
+[rust]
+disabled = false
+
+[swift]
+disabled = false
+
+[terraform]
+disabled = false
+
+[vagrant]
+disabled = false
+
+[zig]
+disabled = false
+
+[nix_shell]
+disabled = false
+
+[conda]
+disabled = false
+
+[aws]
+disabled = false
+
+[gcloud]
+disabled = false
+
+[openstack]
+disabled = false
+
+[env_var]
+disabled = false
+
+[crystal]
+disabled = false
+
+[custom]
+disabled = false
+
+[line_break]
+disabled = false
+
+[lua]
+disabled = false
+
+[battery]
+disabled = false
+
+[character]
+disabled = false
+
+[memory_usage]
+disabled = true
+

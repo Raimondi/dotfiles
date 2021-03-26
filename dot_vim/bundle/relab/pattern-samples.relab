@@ -1,0 +1,40 @@
+dshf\vla*fh\Mo\{-12,34}iauhfl\mai\?sdufh\Vasir*uhg\=lk
+^\d\+
+b\v
+\vabc?$
+\Vab\.c\$
+\Mabc\$
+\mabc$
+\Vabv[jkh]
+[abA-Z[:alpha:][.c.][=f=]askjh\]\-gd]a[^al\e\b\r\tksj-hd]b[-alkshd]c[^-ioasug]d
+__________________________________________________________________________________
+ñ^\%[ls\|k[djf ]ls]
+\v^\%[jashg]ñ%[ls|k[djf ]ls]
+\V\^ñ\%[ls\|k[djf ]ls]
+\M\^ñ\%[ls\|k[djf ]ls]
+ñalsdjkfhañsldjh
+ñalsdjkf
+alskdfj
+l[: \t]*\(\d\+\(,\d\+\)\=\)\=a\%[ppend]$
+ This is highlighted as a comment, but the distinction is just visual
+\%#=1\(\\\|<lt>\)\=<\([scamd]-\)\{0,4}x\=\(f\d\{1,2}\|[^ \t:]\|cr\|lf\|linefeed\|return\|k\=del\%[ete]\|bs\|backspace\|tab\|esc\|right\|left\|help\|undo\|insert\|ins\|k\=home\|k\=end\|kplus\|kminus\|kdivide\|kmultiply\|kenter\|kpoint\|space\|k\=\(page\)\=\(\|down\|up\|k\d\>\)\)>
+foo\(bar\)\@=foo
+if \(\(then\)\@!.\)*$
+\(an\_s\+\)\@<=file
+<\@1<=span
+\(foo\)\@<!bar
+\(foo\)\@123<!bar
+\(a*\)\@>a
+\%^\_.\{-}\zsVIM
+VIM\_.\{-}\%$
+VIM\ze\(\(VIM\)\@!\_.\)*\%$
+\%Vfoo.*ba\%Vr
+\k*\%#\k*
+.\%>'s.*\%<'e..
+\%^
+a\%C
+\%d8172skj23
+\%o123
+\%x3a
+\%ua5e6
+\%Ub34acc85

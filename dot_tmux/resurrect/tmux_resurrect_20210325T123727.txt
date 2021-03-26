@@ -1,0 +1,36 @@
+pane	main	0	:vim	1	:*	0	:/Users/israel/Documents/Source/vim	0	fish	:vim /Users/israel/.config/starship.toml
+pane	main	0	:vim	1	:*	1	:/Users/israel	1	weechat	:weechat --upgrade
+pane	main	0	:vim	1	:*	2	:/Users/israel/Documents/Source/crawl	0	ssh	:vim /Users/israel/.vim/autoload/case.vim
+ssh raimondi@hercules.uberspace.de
+pane	main	1	:mail	0	:-	0	:/opt/macports-ports	1	fish	:
+pane	main	2	:epublibre	0	:	0	:/Users/israel/Documents/Source/epublibre/EPL_RSS_Multi/EPL_RSS_multi	0	fish	:
+pane	main	2	:epublibre	0	:	1	:/Users/israel/Documents/Source/epublibre	0	man	:man touch
+pane	main	2	:epublibre	0	:	2	:/Users/israel/Documents/Source/epublibre/EPL_RSS_Multi/EPL_RSS_multi	1	fish	:
+pane	main	3	:votl	0	:	0	:/Users/israel/Documents/Source/vim-vimoutliner	1	vim	:vim autoload/votl/brainstorm.vim ftplugin/votl/brainstorm.vim perm.otl
+pane	main	4	:VimPEG	0	:	0	:/Users/israel/Documents/Source/Vimpeg	1	vim	:vim autoload/vimpeg/peg.vim autoload/vimpeg.vim autoload/vimpeg/peg/parser.vimpeg autoload/vimpeg/peg.vim syntax/vimpeg.vim
+pane	main	5	:RELab	0	:	0	:/Users/israel/Documents/Source/vim-relab	0	fish	:
+pane	main	5	:RELab	0	:	1	:/Users/israel/Documents/Source/vim-relab	1	fish	:
+pane	main	6	:rockstar	0	:	0	:/Users/israel/Documents/Source/vim-delimitmate	0	vim	:vim test/main.exp
+pane	main	6	:rockstar	0	:	1	:/Users/israel/Documents/Source/vim-delimitmate	1	fish	:
+pane	main	7	:playground	0	:	0	:/Users/israel/Documents/Source/playground	0	vim	:vim vim.vim
+pane	main	7	:playground	0	:	1	:/Users/israel/Documents/Source/vim-yaifa	0	vim	:vim /Users/israel/Source/vim/src/arglist.c
+pane	main	7	:playground	0	:	2	:/Users/israel/Documents/Source/vim-yaifa	1	vim	:vim autoload/yaifa.vim autoload/yaifa9.vim plugin/yaifa.vim doc/yaifa.txt
+pane	main	8	:new	0	:	0	:/Users/israel/Documents/Source/epublibre/EPL_RSS_multi\ OLD	1	fish	:
+pane	main	9	:dotfiles	0	:	0	:/Users/israel/Documents/Source/dotfiles	0	fish	:
+pane	main	9	:dotfiles	0	:	1	:/Users/israel	1	man	:man argparse
+pane	visor	0	:vim	1	:*	0	:/Users/israel/Desktop	1	fish	:
+pane	visor	0	:vim	1	:*	1	:/Users/israel	0	fish	:
+pane	visor	0	:vim	1	:*	2	:/Users/israel/Documents/Source/macOS-PiholeShortcuts	0	fish	:
+pane	visor	0	:vim	1	:*	3	:/Users/israel	0	fish	:
+window	main	0	1	:*	fce2,181x107,0,0{85x107,0,0[85x28,0,0,0,85x78,0,29,1],95x107,86,0,2}
+window	main	1	0	:-	9fb0,181x107,0,0,3
+window	main	2	0	:	2995,181x107,0,0{90x107,0,0[90x53,0,0,4,90x53,0,54,5],90x107,91,0,6}
+window	main	3	0	:	9fb4,181x107,0,0,7
+window	main	4	0	:	9fb5,181x107,0,0,8
+window	main	5	0	:	4bb3,181x107,0,0{90x107,0,0,9,90x107,91,0,10}
+window	main	6	0	:	034c,181x107,0,0{90x107,0,0,11,90x107,91,0,12}
+window	main	7	0	:	519b,181x107,0,0{90x107,0,0[90x53,0,0,13,90x53,0,54,14],90x107,91,0,15}
+window	main	8	0	:	500d,181x107,0,0,16
+window	main	9	0	:	88c5,181x107,0,0[181x54,0,0,17,181x52,0,55,18]
+window	visor	0	1	:*	f495,364x39,0,0{91x39,0,0,20,90x39,92,0,21,90x39,183,0,22,90x39,274,0,23}
+state	main	

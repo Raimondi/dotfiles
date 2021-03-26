@@ -1,0 +1,25 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_classic_git_prompt_initialized:\x1d
+SETUVAR __fish_init_1_22_0:\x1d
+SETUVAR __fish_init_1_50_0:\x1d
+SETUVAR __fish_init_2_39_8:\x1d
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR __fish_init_3_1_0:\x1d
+SETUVAR __fish_init_3_x:\x1d
+SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr_ad:git\x20add
+SETUVAR _fish_abbr_ci:git\x20commit
+SETUVAR _fish_abbr_co:git\x20checkout
+SETUVAR _fish_abbr_l:gls\x20\x24gls_options\x20
+SETUVAR _fish_abbr_lo:git4log\x20log\x20\x2d\x2dpatience\x20\x2dcc
+SETUVAR _fish_abbr_pa:git\x20diff\x20\x2d\x2dpatience\x20\x2d\x2dcolor\x20\x2d\x2dno\x2dext\x2ddiff\x20\x2dw
+SETUVAR _fish_abbr_pu:git\x20push
+SETUVAR _fish_abbr_ss:git\x20stash
+SETUVAR _fish_abbr_st:git\x20status
+SETUVAR _fish_abbr_up:git\x20pull\x20\x2d\x2drebase\x20\x2d\x2dautostash\x20\x2d\x2dstat
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrgrey
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_default_key_bindings

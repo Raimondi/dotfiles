@@ -1,0 +1,7 @@
+# login shell
+echo .bash_profile
+source ~/.profile
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+source /Users/israel/Library/Preferences/org.dystroy.broot/launcher/bash/br

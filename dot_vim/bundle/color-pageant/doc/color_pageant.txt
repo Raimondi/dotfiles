@@ -1,0 +1,90 @@
+*color_pageant.txt*	Color scheme browser
+                           _____     __ ~
+                          / ___/__  / /__  ____ ~
+                      ___/ /__/ _ \/ / _ \/ __/    __ ~
+                     / _ \___/\___/_/\___/_/____  / /_ ~
+                    / ___/ _ `/ _ `/ -_) _ `/ _ \/ __/ ~
+                   /_/   \_,_/\_, /\__/\_,_/_//_/\__/ ~
+                             /___/ ~
+
+
+Israel Chauca <israelchauca@gmail.com>                           *color_pageant*
+Released under the ISC license
+
+
+1. Introduction				|color_pageant-intro|
+2. Ex commands				|color_pageant-ex-commands|
+
+==============================================================================
+ 1. Introduction                                           *color_pageant-intro*
+
+Color Pageant provides several commands to help navigate and make a selection
+from the available color schemes.
+
+==============================================================================
+ 2. Ex commands                                      *color_pageant-ex-commands*
+
+:ColorPageant						     *:CP* *:ColorPageant*
+:CP
+                Opens a new buffer with a list of all available color schemes.
+                The following mappings are set in the buffer:
+		<CR>	activate color scheme in current line
+		<Space>	switch selected status of color scheme
+		+	select color scheme
+		-	deselect color scheme
+		r	restore original color scheme
+		e	edit color scheme
+
+:CPSelection							  *:CPSelection*
+		Like |:ColorPageant| but show only the selected color schemes.
+
+:CPSToggleView							 *:CPToggleView*
+		Switch between showing all or selected color schemes.
+
+The following commands work on the context of the currently loaded color
+scheme:
+
+:[N]CPNext							       *:CPNext*
+		Load the [N]th next color scheme.
+
+:[N]CPPrevious							   *:CPPrevious*
+		Load the [N]th previous color scheme.
+
+:[N]CPGoTo							       *:CPGoTo*
+		Load the [N]th color scheme.
+
+:CPSelectCurrent					      *:CPSelectCurrent*
+		Select the currently loaded color scheme.
+
+:CPDeselectCurrent					    *:CPDeselectCurrent*
+		Deselect the currently loaded color scheme.
+
+:[N]CPNextSelected					       *:CPNextSelected*
+		Load the [N]th next selected color scheme.
+
+:[N]CPPreviousSelected					   *:CPPreviousSelected*
+		Load the [N]th previous selected color scheme.
+
+:[N]CPGoToSelected					       *:CPGoToSelected*
+		Load the [N]th selected color scheme.
+
+:CPRandomSelected					    *:CPRandomiSelected*
+		Load a random color scheme.
+
+:CPRestore							    *:CPRestore*
+		Load the original color scheme.
+
+:CPRandom							     *:CPRandom*
+		Load a random color scheme.
+
+:CPInfo								       *:CPInfo*
+		Print the name of the current color scheme.
+
+:CPRefresh							    *:CPRefresh*
+		Refresh the list of color schemes.
+
+:CPEditCurrent							*:CPEditCurrent*
+		Edit currently loaded color scheme.
+
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:

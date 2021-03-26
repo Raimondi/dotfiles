@@ -1,0 +1,17 @@
+pathogen	pathogen.txt	/*pathogen*
+pathogen-authors	pathogen.txt	/*pathogen-authors*
+pathogen-configuration	pathogen.txt	/*pathogen-configuration*
+pathogen-disable	pathogen.txt	/*pathogen-disable*
+pathogen-enable	pathogen.txt	/*pathogen-enable*
+pathogen-functionality	pathogen.txt	/*pathogen-functionality*
+pathogen-install	pathogen.txt	/*pathogen-install*
+pathogen-installation	pathogen.txt	/*pathogen-installation*
+pathogen-issues	pathogen.txt	/*pathogen-issues*
+pathogen-list	pathogen.txt	/*pathogen-list*
+pathogen-list-all	pathogen.txt	/*pathogen-list-all*
+pathogen-list-disabled	pathogen.txt	/*pathogen-list-disabled*
+pathogen-list-enabled	pathogen.txt	/*pathogen-list-enabled*
+pathogen-plugin	pathogen.txt	/*pathogen-plugin*
+pathogen-remove	pathogen.txt	/*pathogen-remove*
+pathogen-vam	pathogen.txt	/*pathogen-vam*
+pathogen.txt	pathogen.txt	/*pathogen.txt*

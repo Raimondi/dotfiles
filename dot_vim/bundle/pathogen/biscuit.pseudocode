@@ -1,0 +1,56 @@
+(initial thoughts on a bisect algorithm for vim plugins)
+(synopsis: biscuit testfile)
+(where testfile is minimal viml to reproduce the fail case)
+
+1. (init)
+plugins = a list of all bundle/ plugins
+enabled = the set of plugins not marked 'disabled'
+originally_disabled = the set of plugins marked 'disabled'
+safe = empty list of plugins considered harmless and removed from the search
+disabled = empty list of disabled plugins
+
+2.a (run vim testfile)
+confirm that the test fails with all enabled plugins loaded
+
+2.b (run vim testfile)
+confirm that the test passes with all enabled plugins disabled
+(allow an option to skip this - the test case may depend on some plugins)
+
+3. (prime bisection lists)
+(enabled, disabled) = (left half of enabled, right half of enabled)
+
+4. (bisection)
+found = false
+while not found
+  state = run vim testfile
+  if test passed ('failing' plugin is in 'disabled' list)
+    safe = safe + enabled
+    if disabled.count > 1
+      (enabled, disabled) = (left half of disabled, right half of disabled)
+    else
+      found = true
+    endif
+  else (test failed, so 'failing' plugin is in 'enabled' list)
+    safe = safe + disabled
+    if enabled.count > 1
+      (enabled, disabled) = (left half of enabled, right half of enabled)
+    else
+      disabled = enabled
+      found = true
+    endif
+  endif
+endwhile
+
+5. (sanity check)
+enabled = plugins - (originally_disabled + disabled)
+confirm that the test passes (report possible reasons why if it doesn't)
+
+6. (report)
+print offending plugin
+
+7. exit (code based on success of sanity check in step 5?)
+
+
+(issues)
+* will not find co-dependent plugin faults where it is the combination of n plugins causing grief.
+* will result in unmet dependency errors when an enabled plugin depends on a disabled one (say, for example, if tlib is in the disabled set)

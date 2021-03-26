@@ -1,0 +1,6 @@
+command! -buffer -bar PermDecisionTree call votl#brainstorm#perm_decision_tree()
+command! -buffer -bar BinSort call votl#brainstorm#bin_sort_set_up(1)
+command! -buffer -bar -nargs=? BinSortPlace call votl#brainstorm#place(<q-args>)
+command! -buffer -bar BinSortDisplace call votl#brainstorm#displace()
+command! -buffer -bar -count BinSortRotate call votl#brainstorm#rotate(<count>)
+command! -buffer -bar -range=% Randomize call votl#brainstorm#randomize()

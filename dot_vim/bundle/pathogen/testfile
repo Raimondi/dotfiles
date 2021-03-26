@@ -1,0 +1,4 @@
+" play with the return value to see the difference between a passing/failing test
+function! Biscuit()
+  return 1
+endfunction

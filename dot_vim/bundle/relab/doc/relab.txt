@@ -1,0 +1,283 @@
+*relab.txt*	A Playground for Vim Regular Expressions v0.1
+
+
+              88 888b. 8888 88 Yb    8    Yb         Yb    8    ~
+              8  8  .8 8www  8  Yb   8     Yb   .d88  Yb   88b. ~
+              8  8wwK' 8     8   Yb  8      Yb  8  8   Yb  8  8 ~
+              8  8  Yb 8888  8    Yb 8888    Yb `Y88    Yb 88P' ~
+              88            88                                  ~
+
+
+==============================================================================
+
+Contents					*relab-contents* *relab*
+
+- Introduction			|relab-intro|
+- Views				|relab-views|
+  - Description View		|relab-description-view|
+  - Matches View		|relab-matches-view|
+  - Validate View		|relab-validate-view|
+  - Sample Text View		|relab-sample-text-view|
+- Reference			|relab-reference|
+  - Collections			|relab-collections|
+  - Ex Commands			|relab-ex-commands|
+  - Configuration		|relab-configuration|
+  - Mappings			|relab-mappings|
+
+==============================================================================
+Introduction					*relab-intro*
+
+Vim's regular expressions (regexp) can be a bit different from what people is
+used to nowadays, RELab provides some tools to help with understanding how
+they work.
+
+This plugin offers three main features to work with a regexp and some sample
+text: it can describe every element of of the regexp, show what text it
+matches, and show which lines are matched by it and which are not.
+
+The current information (regexp, sample text and current) view are stored on
+disk and restored the next time RELab is used.
+						*relab-feedback*
+If you have feedback of any kind, please send it my way, here are some hints
+on how to do it:
+
+	Israel Chauca
+	mailto:israelchauca@gmail.com
+	https://github.com/Raimondi/vim-relab
+
+
+LICENSE						*relab-license*
+
+This software is released under a dual license system (MIT and Vim). You are
+free to choose which one to use.
+
+==============================================================================
+
+Views						*relab-views*
+
+There are four available views that show different aspects of the regexp. The
+Description view shows every item next to a description of what it does. The
+Matches view shows what text is matched by the regexp, when used on a sample
+text. The Validation view shows which lines of the sample text are matched or
+not by the regexp. The Sample Text view shows the provided text that is used
+to match the regexp against, and eny edits to it is preserved after switching
+to other view. Whenever the regexp is shown it can be edited and the result
+with be automatically updated and stored for the other views.
+
+
+DESCRIPTION VIEW				*relab-description-view*
+
+Shows the description of every element of the current regexp. Get to this view
+with |:RELabDescribe| or |relab-rd|.
+>
+	+---------------------------------------------------------------+
+	|RELab: Description						|
+	|\(\w\+\)@\(\w\+\)						|
+	|								|
+	|  \( => Starts a capturing group.				|
+	|    \w => A word character: [0-9A-Za-z_].			|
+	|    \+ => 1 or more of the preceding atom, as many as possible.|
+	|  \) => Ends a capturing group.				|
+	|  @ => Matches the character "@" (code 64).			|
+	|  \( => Starts a capturing group.				|
+	|    \w => A word character: [0-9A-Za-z_].			|
+	|    \+ => 1 or more of the preceding atom, as many as possible.|
+	|  \) => Ends a capturing group.				|
+	|~								|
+	+---------------------------------------------------------------+
+<
+
+MATCHES VIEW					*relab-matches-view*
+
+Display every line of the sample text that is matched by the current regexp.
+Also show the matched text for every matched line. Both |:RELabMatches| and
+|relab-rm| open this view.
+>
+	+---------------------------------------------------------------+
+	|RELab: Matches							|
+	|\(\w\+\)@\(\w\+\)						|
+	|								|
+	|+:email@example.com						|
+	|0:email@example						|
+	||\1:email							|
+	| \2:example							|
+	|+:firstname.lastname@example.com				|
+	|0:lastname@example						|
+	||\1:lastname							|
+	| \2:example							|
+	|+:email@subdomain.example.com					|
+	|0:email@subdomain						|
+	+---------------------------------------------------------------+
+<
+
+VALIDATION VIEW					*relab-validation-view*
+
+Every line of the sample text is marked as matched (with +) or unmatched (with
+x) by the current regexp. Also show the matched text for every matched line.
+The command |:RELabValidate| or the mapping in |relab-rv| bring you here.
+>
+	+---------------------------------------------------------------+
+	|RELab: Validation						|
+	|\(\w\+\)@\(\w\+\)						|
+	|								|
+	|x:Some email addresses to play with				|
+	|x:								|
+	|+:email@example.com						|
+	|0:email@example						|
+	||\1:email							|
+	| \2:example							|
+	|+:firstname.lastname@example.com				|
+	|0:lastname@example						|
+	||\1:lastname							|
+	| \2:example							|
+	+---------------------------------------------------------------+
+<
+
+SAMPLE TEXT VIEW				*relab-sample-text-view*
+
+Shows the sample text that will be used with the given regex. Any edits to the
+text while in this view will be preserved for the other views. In order to
+access the sample text, use |:RELabSample| or |relab-rs|. |RELabGetSample| will
+also open this view and get the sample text from the current buffer or read
+from another file.
+>
+	+---------------------------------------------------------------+
+	|RELab: Sample Text						|
+	|-------------							|
+	|Some email addresses to play with				|
+	|								|
+	|email@example.com						|
+	|firstname.lastname@example.com					|
+	|email@subdomain.example.com					|
+	|firstname+lastname@example.com					|
+	|email@123.123.123.123						|
+	|email@[123.123.123.123]					|
+	|~								|
+	|~								|
+	|~								|
+	+---------------------------------------------------------------+
+<
+
+==============================================================================
+
+RELab Reference					*relab-reference*
+
+
+COLLECTIONS					*relab-collections*
+Any file with the .relab extension is considered as a collection of regexp and
+will have syntax highlighting enabled. Lines starting with a space will be
+highlighted as comments, but that's the only difference from the other lines.
+if mappings are enabled, <leader>rl will load the current line as a regexp.
+
+
+EX COMMANDS					*relab-ex-commands*
+
+						*:RELab*
+:RELab [regexp]		Show the RELab buffer and use [regexp] if provided.
+
+						*:RELabDescribe*
+:RELabDescribe [regexp]	Show the description view and use [regexp] if provided.
+
+						*:RELabSample*
+:RELabSample		Show the sample text view.
+
+						*:RELabGetSample*
+:[range]RELabGetSample	Get the lines in [range] from the current buffer and
+			use it to test the current regexp. When [range] is
+			omitted use all lines.
+						*:RELabUseLine*
+:[line]RELabUseLine	Use [line] as the new regexp. Without [line] use the
+			current line.
+						*:RELabMatches*
+:RELabMatches [regexp]	Show the matches view and use [regexp] if provided.
+
+						*:RELabValidate*
+:RELabValidate [regexp]	Show the validate view and use [regexp] if provided.
+
+
+
+CONFIGURATION					*relab-configuration*
+
+						*'relab_file_path'*
+g:relab_file_path	string (default is one dir up from plugin/relab.vim)
+			The path to the file RELab will use to store its data
+			between sessions.
+						*'relab_set_mappings'*
+g:relab_set_mappings	boolean (default off)
+			Whether to set mappings in the RELab buffer and other
+			*.relab files.
+
+
+MAPPINGS					*relab-mappings*
+
+When |'relab_set_mappings'| is true, some local mappings are defined to switch
+among the different views:
+
+						*relab-rd*
+<leader>rd		Run |:RELabDescribe|, only in the RELab buffer.
+
+						*relab-rm*
+<leader>rm		Run |:RELabMatches|, only in the RELab buffer.
+
+						*relab-rs*
+<leader>rs		Run |:RELabSample|, only in the RELab buffer.
+
+						*relab-rv*
+<leader>rv		Run |:RELabValidate|, only in the RELab buffer.
+
+
+An additional mapping is defined for files with regexp collections
+(|relab-collections|):
+
+						*relab-rl*
+<leader>rl		Run |:RELabUseLine| on the current line.
+
+==============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            *     ,MMM8&&&.            *      ~
+                                 MMMM88&&&&&    .             ~
+                                MMMM88&&&&&&&                 ~
+                    *           MMM88&&&&&&&&                 ~
+                                MMM88&&&&&&&&                 ~
+                                'MMM88&&&&&&'                 ~
+                                  'MMM8&&&'      *            ~
+                         |\___/|                              ~
+                         )     (             .              ' ~
+                        =\     /=                             ~
+                          )===(       *                       ~
+                         /     \                              ~
+                         |     |                              ~
+                        /       \                             ~
+                        \       /                             ~
+                 _/\_/\_/\__  _/_/\_/\_/\_/\_/\_/\_/\_/\_/\_  ~
+                 |  |  |  |( (  |  |  |  |  |  |  |  |  |  |  ~
+                 |  |  |  | ) ) |  |  |  |  |  |  |  |  |  |  ~
+                 |  |  |  |(_(  |  |  |  |  |  |  |  |  |  |  ~
+                 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ~
+                 jgs|  |  |  |  |  |  |  |  |  |  |  |  |  |  ~
+==============================================================================
+ vim:set tw=78 noet ts=8 ft=help norl: ~

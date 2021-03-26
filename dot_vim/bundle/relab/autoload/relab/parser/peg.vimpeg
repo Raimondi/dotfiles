@@ -1,0 +1,217 @@
+.skip_white = true
+.namespace = 'relab#parser'
+.parser_name = 'parser'
+.root_element = 'vimregexp'
+.ignore_case = false
+.debug = true
+.verbose = 4
+
+vimregexp ::= engine ? flag * pattern
+pattern ::= branch ( bsl_only '|' branch ) *
+branch ::= concat ( bsl_only '&' concat ) *
+concat ::= flag_or_piece +
+flag_or_piece ::= flag | piece
+; TODO a multi can't follow another multi √
+; TODO a multi must follow an atom √
+; TODO lookarounds must follow an atom √
+piece ::= multi_alone | too_many_multi | propper_piece
+propper_piece ::= atom multi ?
+too_many_multi ::= atom multi multi +
+multi_alone ::= multi +
+atom ::= group | ordinary_atom
+ordinary_atom ::= optional | collection | anchor | class | literal
+
+flag ::= magic_level | ignore_case | composing_chars
+composing_chars ::= bsl_only 'Z'
+ignore_case ::= bsl_only '[cC]'
+magic_level ::= bsl_only '[VMmv]'
+
+; TODO handle numbers greater than 2
+engine ::= bsl_only '@#=\d'
+
+multi ::= maybe_many | many | maybe_one | exactly | between | at_least \
+        | at_most | wrong_multi_bracket | lookahead | negative_lookahead \
+        | lookbehind | negative_lookbehind | commit | skip_composing \
+        | wrong_at
+maybe_many ::= '\*'
+many ::= bsl_only '+'
+maybe_one ::= bsl_only '=' | bsl_only '?'
+; TODO make sure syntax is valid for bracketed multi √
+exactly ::= bsl_only '{' '-' ? dec_number '}'
+between ::= bsl_only '{' '-' ? dec_number ',' dec_number '}'
+at_least ::= bsl_only '{' '-' ? dec_number ',}'
+at_most ::= bsl_only '{' '-' ? ',' dec_number '}'
+wrong_multi_bracket ::= bsl_only '{[^}]*}\?'
+; TODO invalid character following a \@ √
+lookahead ::= bsl_only '@='
+negative_lookahead ::= bsl_only '@!'
+lookbehind ::= bsl_only '@' dec_number ? '<='
+negative_lookbehind ::= bsl_only '@' dec_number ? '<!'
+commit ::= bsl_only '@>'
+skip_composing ::= bsl_only '%C'
+wrong_at ::= bsl_only '@' dec_number ? '[^<>=!]'
+
+; TODO handle left unbalanced group √
+; TODO handle right unbalanced group (indirect left recursive rule)
+group ::= closed_group | right_open_group
+closed_group ::= start_group pattern ? bsl_only ')'
+left_open_group ::= pattern ? bsl_only ')'
+right_open_group ::= start_group pattern ?
+; TODO only 9 capturing groups
+start_group ::= start_capturing_group | start_non_capturing_group \
+              | start_external_capturing_group
+start_capturing_group ::= bsl_only '('
+start_non_capturing_group ::= bsl_only '%('
+start_external_capturing_group ::= bsl_only 'z('
+
+; TODO handle invalid items in optional group √
+; TODO optional group can't be empty √
+optional ::= bsl_only '%\[' opt_sequence ']'
+opt_sequence ::= opt_item *
+opt_item ::= anchor | class | backref | ext_backref | collection \
+           | literal_no_square
+forbidden_in_opt ::= bsl_only '(' | bsl_only ')' \
+                   | bsl_only '%[' | multi
+
+anchor ::= caret_or_bol | caret | dollar_or_eol | eol | any_or_eol \
+             | bow | eow | bom | eom | bof | eof | in_visual | at_cursor \
+             | at_mark | before_mark | after_mark | at_line | before_line \
+             | after_line | at_column | before_column | after_column \
+             | at_virtual_column | before_virtual_column | after_virtual_column
+caret_or_bol ::= '\^'
+bol ::= '\\_^'
+dollar_or_eol ::= '\$'
+eol ::= '\\_\$'
+any_or_eol ::= bsl_and_eol '\.'
+bow ::= bsl_only '<'
+eow ::= bsl_only '>'
+; TODO invalid character after \z
+bom ::= bsl_only 'zs'
+eom ::= bsl_only 'ze'
+bof ::= bsl_only '%\^'
+eof ::= bsl_only '%\$'
+; TODO invalid character after \%
+in_visual ::= bsl_only '%V'
+at_cursor ::= bsl_only '%#'
+at_mark ::= bsl_only '%' "'" '[0-9a-zA-Z<>"^.(){}[\]]'
+before_mark ::= bsl_only '%<' "'" '[0-9a-zA-Z<>"^.(){}[\]]'
+after_mark ::= bsl_only '%>' "'" '[0-9a-zA-Z<>"^.(){}[\]]'
+at_line ::= bsl_only '%' dec_number 'l'
+before_line ::= bsl_only '%<' dec_number 'l'
+after_line ::= bsl_only '%>' dec_number 'l'
+at_column ::= bsl_only '%' dec_number 'c'
+before_column ::= bsl_only '%<' dec_number 'c'
+after_column ::= bsl_only '%>' dec_number 'c'
+at_virtual_column ::= bsl_only '%' dec_number 'v'
+before_virtual_column ::= bsl_only '%<' dec_number 'v'
+after_virtual_column ::= bsl_only '%>' dec_number 'v'
+
+class ::= ident | ident_no_digits | keyword | keyword_no_digits | fname \
+        | fname_no_digits | print | print_no_digits | whitespace \
+        | non_whitespace | digit | non_digit | hex_digit | non_hex_digit \
+        | octal_digit | non_octal_digit | word | non_word | alpha | non_alpha \
+        | lower_case | non_lower_case | upper_case | non_upper_case | any \
+        | last_sub | backref | ext_backref
+ident ::= bsl_or_eol 'i'
+ident_no_digits ::= bsl_or_eol 'I'
+keyword ::= bsl_or_eol 'k'
+keyword_no_digits ::= bsl_or_eol 'K'
+fname ::= bsl_or_eol 'f'
+fname_no_digits ::= bsl_or_eol 'F'
+print ::= bsl_or_eol 'p'
+print_no_digits ::= bsl_or_eol 'P'
+whitespace ::= bsl_or_eol 's'
+non_whitespace ::= bsl_or_eol 'S'
+digit ::= bsl_or_eol 'd'
+non_digit ::= bsl_or_eol 'D'
+hex_digit ::= bsl_or_eol 'x'
+non_hex_digit ::= bsl_or_eol 'X'
+octal_digit ::= bsl_or_eol 'o'
+non_octal_digit ::= bsl_or_eol 'O'
+word ::= bsl_or_eol 'w'
+non_word ::= bsl_or_eol 'W'
+head ::= bsl_or_eol 'h'
+non_head ::= bsl_or_eol 'H'
+alpha ::= bsl_or_eol 'a'
+non_alpha ::= bsl_or_eol 'A'
+lower_case ::= bsl_or_eol 'l'
+non_lower_case ::= bsl_or_eol 'L'
+upper_case ::= bsl_or_eol 'u'
+non_upper_case ::= bsl_or_eol 'U'
+any ::= bsl_and_eol ? '\.'
+last_sub ::= '\~'
+; TODO make sure there are no more back refs than capt groups
+backref ::= bsl_only '[0-9]'
+ext_backref ::= bsl_only 'z[0-9]'
+
+collection ::= coll_start coll_negation ? coll_sequence coll_end
+coll_start ::= bsl_and_eol ? '\['
+coll_negation ::= '\^'
+coll_sequence ::= coll_item +
+coll_item ::= coll_range | coll_char
+; TODO verify range is not reversed
+coll_range ::= coll_char '-' coll_char
+coll_char ::= coll_class | coll_collation | coll_equivalence | coll_octal \
+            | coll_dec | coll_low_hex | coll_mid_hex | coll_high_hex | escape \
+            | tab | car_return | line_break | '\\-' | '\\]' | '\\\^' \
+            | coll_itself
+coll_itself ::= '[^]]'
+coll_end ::= ']'
+coll_equivalence ::= '\[=' '\a' '=]'
+coll_collation ::= '\[\.' '\a' '\.]'
+coll_class ::= '\[:' coll_class_name ':]'
+coll_class_name ::= 'alnum' | 'alpha' | 'blank' | 'cntrl' | 'digit' | 'graph' \
+                  | 'lower' | 'print' | 'punct' | 'xdigit' | 'return' | 'tab' \
+                  | 'escape' | 'backspace' | 'ident' | 'keyword' | 'fname'
+coll_octal ::= '\\o' octal_number
+coll_dec ::= '\\d' dec_number
+coll_low_hex ::= '\\x' low_hex_number
+coll_mid_hex ::= '\\u' mid_hex_number
+coll_high_hex ::= '\\U' high_hex_number
+
+literal_no_square ::= escape | tab | car_return | line_break | caret | dollar \
+                    | star | tilde | period | left_square_bracket \
+                    | octal_char | dec_char | low_hex_char | mid_hex_char \
+                    | high_hex_char | invalid_literal | '[^]]'
+literal ::= escape | tab | car_return | line_break | caret | dollar | star \
+          | tilde | period | left_square_bracket | octal_char | dec_char \
+          | low_hex_char | mid_hex_char | high_hex_char | invalid_literal \
+          | itself
+itself ::= !'\\[()|&]' '.'
+invalid_literal ::= invalid_octal_char | invalid_dec_char | invalid_hex_char \
+                  | invalid_z
+invalid_at ::= bsl_only 'z[^es0-9(]'
+invalid_at ::= bsl_only '%[^]'
+escape ::= bsl_only 'e'
+tab ::= bsl_only 't'
+car_return ::= bsl_only 'r'
+line_break ::= bsl_only 'n'
+caret ::= bsl_only '\^'
+dollar ::= bsl_only '\$'
+star ::= '\*'
+tilde ::= '\~'
+period ::= bsl_only '\.'
+left_square_bracket ::= bsl_only '\['
+; TODO invalid character after \%[odxuU]
+octal_char ::= bsl_only '%o' octal_number
+dec_char ::= bsl_only '%d' dec_number
+low_hex_char ::= bsl_only '%x' low_hex_number
+mid_hex_char ::= bsl_only '%u' mid_hex_number
+high_hex_char ::= bsl_only '%U' high_hex_number
+invalid_octal_char ::= bsl_only '%o' '\O'
+invalid_dec_char ::= bsl_only '%d' '\D'
+invalid_hex_char ::= bsl_only '%[xuU]' '\X'
+
+
+octal_number ::= '[123]\o\o' | '\o\{1,2}'
+dec_number ::= '\d\+'
+low_hex_number ::= '\x\{1,2}'
+mid_hex_number ::= '\x\{1,4}'
+high_hex_number ::= '\x\{1,8}'
+
+bsl_only ::= backslash bad_underscore | backslash
+bad_underscore ::= '_'
+bsl_or_eol ::= bsl_and_eol | backslash
+; TODO not all \ can be turned into \_
+bsl_and_eol ::= backslash '_'
+backslash ::= '\\'

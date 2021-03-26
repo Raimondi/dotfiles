@@ -1,0 +1,24 @@
+set -g clock-mode-colour "#ff0000"
+set -g clock-mode-style 24
+set -g display-panes-active-colour "default"
+set -g display-panes-colour "default"
+set -g message-command-style "bg=default,fg=default"
+set -g message-style "bg=default,fg=default"
+set -g mode-style "bg=#ff0000,fg=default"
+set -g pane-active-border-style "bg=default,fg=#00ff00"
+set -g pane-border-style "bg=default,fg=default"
+set -g status-justify centre
+set -g status-left "#S #[fg=#ffffff]» #[fg=#ffff00]#I #[fg=#00ffff]#P"
+set -g status-left-length 40
+set -g status-left-style "bg=#333388,fg=#00ff00"
+set -g status-right "#H #[fg=#ffffff]« #[fg=#ffff00]%H:%M:%S #[fg=#00ff00]%d-%b-%y"
+set -g status-right-length 40
+set -g status-right-style "bg=#333388,fg=#00ffff"
+set -g status-style "bg=#333388,fg=#00ffff"
+set -g window-style "fg=default,bg=default"
+set -g window-status-activity-style "fg=#ffff00,bg=#333388"
+set -g window-status-bell-style "fg=#ffffff,bg=#ff0000"
+set -g window-status-current-format " #I:#W#F "
+set -g window-status-current-style "bg=#ff0000,fg=#333388"
+set -g window-status-format " #I:#W#F "
+set -g window-status-separator ""

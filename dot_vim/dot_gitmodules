@@ -1,0 +1,39 @@
+[submodule "bundle/aquamarine"]
+	path = bundle/aquamarine
+	url = https://github.com/tristanheaven/vim-colorscheme-aquamarine.git
+[submodule "bundle/pathogen"]
+	path = bundle/pathogen
+	url = git@github.com:Raimondi/vim-pathogen.git
+[submodule "bundle/crystal"]
+	path = bundle/crystal
+	url = https://github.com/rhysd/vim-crystal.git
+[submodule "bundle/elm"]
+	path = bundle/elm
+	url = https://github.com/ElmCast/elm-vim.git
+[submodule "bundle/fish"]
+	path = bundle/fish
+	url = git@github.com:Raimondi/vim-fish.git
+[submodule "bundle/io"]
+	path = bundle/io
+	url = git@github.com:Raimondi/vim-io.git
+[submodule "bundle/ledger"]
+	path = bundle/ledger
+	url = https://github.com/ledger/vim-ledger.git
+[submodule "bundle/swift"]
+	path = bundle/swift
+	url = https://github.com/keith/swift.vim.git
+[submodule "bundle/vimoutliner"]
+	path = bundle/vimoutliner
+	url = https://github.com/vimoutliner/vimoutliner.git
+[submodule "bundle/startify"]
+	path = bundle/startify
+	url = https://github.com/mhinz/vim-startify.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/yaifa"]
+	path = bundle/yaifa
+	url = git@github.com:Raimondi/YAIFA.git
+[submodule "bundle/repeat"]
+	path = bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git

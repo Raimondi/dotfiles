@@ -1,0 +1,12 @@
+.skip_white = false
+.namespace = 'votl_parser'
+.parser_name = 'votl#parser'
+.root_element = 'outline'
+
+outline        ::= header ( header | object ) *
+header         ::= indent &'[^:;|<>\t]' line -> #line
+object         ::= indent '[:;<>|]' line -> #line
+line           ::= '[^\n]*' eol
+indent         ::= '^\t*'
+eol            ::= '\n'
+eof            ::= '$'

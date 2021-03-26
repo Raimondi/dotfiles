@@ -1,0 +1,8 @@
+# interactive shell
+# ssh
+echo .bashrc
+source ~/.profile
+
+export PATH=/Users/israel/.local/bin/luna-studio:$PATH
+
+source /Users/israel/Library/Preferences/org.dystroy.broot/launcher/bash/br
