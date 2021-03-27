@@ -58,11 +58,17 @@ end
 # What follows is for interactive shell. #
 ##########################################
 
+if test -d ~/.config/ls_colors
+  set ls_colors ~/.config/ls_colors
+else if test -d ~/.ls_colors
+  set ls_colors ~/.ls_colors
+end
+
 if type -f gdircolors 1>/dev/null 2>/dev/null
-  eval (gdircolors  --c-shell ~/Documents/Source/LS_COLORS/LS_COLORS \
+  eval (gdircolors  --c-shell $ls_colors \
      | string replace setenv 'set -xg')
 else if type -f dircolors 1>/dev/null 2>/dev/null
-  eval (dircolors  --c-shell ~/Documents/Source/LS_COLORS/LS_COLORS \
+  eval (dircolors  --c-shell $ls_colors \
      | string replace setenv 'set -xg')
 end
 
