@@ -229,6 +229,6 @@ end
 if random 1 2 2> /dev/null > /dev/null
   starship init fish | source
 else
-
-  source ("/opt/local/bin/starship" init fish --print-full-init | sed -e {s/random/starship session/;}| psub)
+  source ("/opt/local/bin/starship" init fish --print-full-init \
+     | sed -e '{s/random/starship session/;}' | psub)
 end
