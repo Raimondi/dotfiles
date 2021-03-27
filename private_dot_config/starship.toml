@@ -59,6 +59,7 @@ format = "[$user]($style) "
 
 [hostname]
 disabled = false
+trim_at = ".local"
 format = "at [$hostname]($style) "
 
 [time]
