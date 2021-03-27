@@ -1,57 +1,59 @@
 function set_colors -d 'Use the given colors to ses fish_colors'
 
-  set options 'g/grey=' 'h/help' 'a-autosuggestion=' 'b-command=' \
-     'c-comment=' 'd-cwd=' 'e-cwd_root=' 'f-end=' 'z-error=' 'ñ-escape=' \
-     'i-history_current=' 'j-host=' 'k-match=' 'l-normal=' 'm-operator=' \
-     'n-param=' 'o-quote=' 'p-redirection=' 'q-search_match=' 'r-status=' \
-     's-user=' 't-valid_path=' 'u-pager_completion=' 'v-pager_description=' \
-     'w-pager_prefix=' 'x-pager_progress=' 'y-pager_secondary='
-  argparse --name=set_colors --max=5 $options -- $argv
-  or return
+  if type -q argparse
+    set options 'g/grey=' 'h/help' 'a-autosuggestion=' 'b-command=' \
+       'c-comment=' 'd-cwd=' 'e-cwd_root=' 'f-end=' 'z-error=' 'ñ-escape=' \
+       'i-history_current=' 'j-host=' 'k-match=' 'l-normal=' 'm-operator=' \
+       'n-param=' 'o-quote=' 'p-redirection=' 'q-search_match=' 'r-status=' \
+       's-user=' 't-valid_path=' 'u-pager_completion=' 'v-pager_description=' \
+       'w-pager_prefix=' 'x-pager_progress=' 'y-pager_secondary='
+    argparse --name=set_colors --max=5 $options -- $argv
+    or return
 
-  set -q _flag_help
-  and echo '
-	set_colors [-h|--help]
-	set_colors [OPTIONS] color1[ color2[ color3[ color4[ color5]]]]
+    set -q _flag_help
+    and echo '
+        set_colors [-h|--help]
+        set_colors [OPTIONS] color1[ color2[ color3[ color4[ color5]]]]
 
 Automatically set fish\'s colors with the given colors.
 
 The following options are available:
 
-	-h, --help		show this text
-	-g, --grey		overrides the default value (555) for
-				fish_color_search\'s background
-	--autosuggestion	overrides fish_color_autosuggestion
-	--command		overrides fish_color_command
-	--comment		overrides fish_color_comment
-	--cwd			overrides fish_color_cwd
-	--cwd_root		overrides fish_color_cwd_root
-	--end			overrides fish_color_end
-	--error			overrides fish_color_error
-	--escape		overrides fish_color_escape
-	--history_current	overrides fish_color_history_current
-	--host			overrides fish_color_host
-	--match			overrides fish_color_match
-	--normal		overrides fish_color_normal
-	--operator		overrides fish_color_operator
-	--param			overrides fish_color_param
-	--quote			overrides fish_color_quote
-	--redirection		overrides fish_color_redirection
-	--search_match		overrides fish_color_search_match
-	--status		overrides fish_color_status
-	--user			overrides fish_color_user
-	--valid_path		overrides fish_color_valid_path
-	--pager_completion	overrides fish_pager_color_completion
-	--pager_description	overrides fish_pager_color_description
-	--pager_prefix		overrides fish_pager_color_prefix
-	--pager_progress	overrides fish_pager_color_progress
-	--pager_secondary	overrides fish_pager_color_secondary
+        -h, --help		show this text
+        -g, --grey		overrides the default value (555) for
+                                fish_color_search\'s background
+        --autosuggestion	overrides fish_color_autosuggestion
+        --command		overrides fish_color_command
+        --comment		overrides fish_color_comment
+        --cwd			overrides fish_color_cwd
+        --cwd_root		overrides fish_color_cwd_root
+        --end			overrides fish_color_end
+        --error			overrides fish_color_error
+        --escape		overrides fish_color_escape
+        --history_current	overrides fish_color_history_current
+        --host			overrides fish_color_host
+        --match			overrides fish_color_match
+        --normal		overrides fish_color_normal
+        --operator		overrides fish_color_operator
+        --param			overrides fish_color_param
+        --quote			overrides fish_color_quote
+        --redirection		overrides fish_color_redirection
+        --search_match		overrides fish_color_search_match
+        --status		overrides fish_color_status
+        --user			overrides fish_color_user
+        --valid_path		overrides fish_color_valid_path
+        --pager_completion	overrides fish_pager_color_completion
+        --pager_description	overrides fish_pager_color_description
+        --pager_prefix		overrides fish_pager_color_prefix
+        --pager_progress	overrides fish_pager_color_progress
+        --pager_secondary	overrides fish_pager_color_secondary
 '
-  and return
+    and return
 
-  set -q _flag_grey
-  and  set -l grey $_flag_grey
-  or set -l grey 555
+    set -q _flag_grey
+    and  set -l grey $_flag_grey
+    or set -l grey 555
+  end
 
   switch (count $argv)
     case 5
