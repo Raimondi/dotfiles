@@ -14,21 +14,21 @@ end
 set temp_path $PATH
 set -xg PATH
 for dir in                                                        \
-  $temp_path                                                      \
-  /sbin                                                           \
-  /bin                                                            \
-  /usr/sbin                                                       \
-  /usr/bin                                                        \
-  /opt/local/sbin                                                 \
-  /usr/local/bin                                                  \
-  /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin \
-  ~/Library/Python/3.7/bin                                        \
-  /opt/local/bin                                                  \
-  ~/.local/bin                                                    \
-  ~/.luarocks/bin                                                 \
-  ~/.cargo/bin                                                    \
-  ~/Source/fzf/bin                                                \
-  ~/bin                                                           \
+   $temp_path                                                      \
+   /sbin                                                           \
+   /bin                                                            \
+   /usr/sbin                                                       \
+   /usr/bin                                                        \
+   /opt/local/sbin                                                 \
+   /usr/local/bin                                                  \
+   /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin \
+   ~/Library/Python/3.7/bin                                        \
+   /opt/local/bin                                                  \
+   ~/.local/bin                                                    \
+   ~/.luarocks/bin                                                 \
+   ~/.cargo/bin                                                    \
+   ~/Source/fzf/bin                                                \
+   ~/bin                                                           \
 
   test -n "$PATH"
   and set idx (contains --index "$dir" $PATH)
@@ -110,41 +110,41 @@ source "$plugin_dir/fbell.fish"
 #colorscheme -s 7D9E3C 73581D FFFEC0 FFE2A6 FE9F8C
 
 #set colors \
-#"BD1550 8A9B0F E97F02 F8CA00" \
-#"FA6900 69D2E7 A7DBD8 F38630 E0E4CC" \
-#"69D2E7 A7DBD8 F38630 E0E4CC FA6900" \
-#"A7DBD8 F38630 E0E4CC FA6900 69D2E7" \
-#"F38630 E0E4CC FA6900 69D2E7 A7DBD8" \
-#"E0E4CC FA6900 69D2E7 A7DBD8 F38630" \
-#"53777A D95B43 C02942 542437 ECD078" \
-#"FFF2AF D31900 7CB490 FF6600" \
-#"4ECDC4 C44D58 FF6B6B 556270 C7F464" \
-#"80BCA3 E6AC27 BF4D28 655643 F6F7BD" \
-#\
-#"1693A7 CC0C39 E6781E C8CF02 F8FCC1" \
-#"F8FCC1 1693A7 CC0C39 E6781E C8CF02" \
-#"C8CF02 F8FCC1 1693A7 CC0C39 E6781E" \
-#"E6781E C8CF02 F8FCC1 1693A7 CC0C39" \
-#"CC0C39 E6781E C8CF02 F8FCC1 1693A7" \
-#\
-#"F8FCC1 C8CF02 E6781E CC0C39 1693A7" \
-#"C8CF02 E6781E CC0C39 1693A7 F8FCC1" \
-#"E6781E CC0C39 1693A7 F8FCC1 C8CF02" \
-#"CC0C39 1693A7 F8FCC1 C8CF02 E6781E" \
-#"1693A7 F8FCC1 C8CF02 E6781E CC0C39" \
-#\
-#"FE9F8C 7D9E3C 73581D FFFEC0 FFE2A6" \
-#"FFE2A6 FE9F8C 7D9E3C 73581D FFFEC0" \
-#"FFFEC0 FFE2A6 FE9F8C 7D9E3C 73581D" \
-#"73581D FFFEC0 FFE2A6 FE9F8C 7D9E3C" \
-#"7D9E3C 73581D FFFEC0 FFE2A6 FE9F8C" \
-#\
-#"FE9F8C FFE2A6 FFFEC0 73581D 7D9E3C" \
-#"FFE2A6 FFFEC0 73581D 7D9E3C FE9F8C" \
-#"FFFEC0 73581D 7D9E3C FE9F8C FFE2A6" \
-#"73581D 7D9E3C FE9F8C FFE2A6 FFFEC0" \
-#"7D9E3C FE9F8C FFE2A6 FFFEC0 73581D" \
-#
+   #"BD1550 8A9B0F E97F02 F8CA00" \
+   #"FA6900 69D2E7 A7DBD8 F38630 E0E4CC" \
+   #"69D2E7 A7DBD8 F38630 E0E4CC FA6900" \
+   #"A7DBD8 F38630 E0E4CC FA6900 69D2E7" \
+   #"F38630 E0E4CC FA6900 69D2E7 A7DBD8" \
+   #"E0E4CC FA6900 69D2E7 A7DBD8 F38630" \
+   #"53777A D95B43 C02942 542437 ECD078" \
+   #"FFF2AF D31900 7CB490 FF6600" \
+   #"4ECDC4 C44D58 FF6B6B 556270 C7F464" \
+   #"80BCA3 E6AC27 BF4D28 655643 F6F7BD" \
+   #\
+   #"1693A7 CC0C39 E6781E C8CF02 F8FCC1" \
+   #"F8FCC1 1693A7 CC0C39 E6781E C8CF02" \
+   #"C8CF02 F8FCC1 1693A7 CC0C39 E6781E" \
+   #"E6781E C8CF02 F8FCC1 1693A7 CC0C39" \
+   #"CC0C39 E6781E C8CF02 F8FCC1 1693A7" \
+   #\
+   #"F8FCC1 C8CF02 E6781E CC0C39 1693A7" \
+   #"C8CF02 E6781E CC0C39 1693A7 F8FCC1" \
+   #"E6781E CC0C39 1693A7 F8FCC1 C8CF02" \
+   #"CC0C39 1693A7 F8FCC1 C8CF02 E6781E" \
+   #"1693A7 F8FCC1 C8CF02 E6781E CC0C39" \
+   #\
+   #"FE9F8C 7D9E3C 73581D FFFEC0 FFE2A6" \
+   #"FFE2A6 FE9F8C 7D9E3C 73581D FFFEC0" \
+   #"FFFEC0 FFE2A6 FE9F8C 7D9E3C 73581D" \
+   #"73581D FFFEC0 FFE2A6 FE9F8C 7D9E3C" \
+   #"7D9E3C 73581D FFFEC0 FFE2A6 FE9F8C" \
+   #\
+   #"FE9F8C FFE2A6 FFFEC0 73581D 7D9E3C" \
+   #"FFE2A6 FFFEC0 73581D 7D9E3C FE9F8C" \
+   #"FFFEC0 73581D 7D9E3C FE9F8C FFE2A6" \
+   #"73581D 7D9E3C FE9F8C FFE2A6 FFFEC0" \
+   #"7D9E3C FE9F8C FFE2A6 FFFEC0 73581D" \
+   #
 #set random (dd if=/dev/urandom bs=6 count=1 2>/dev/null | cksum | cut -f1 -d " ")
 #set lucky (math "($random % "(count $colors)") + 1")
 #eval "colorscheme -s $colors[$lucky]"
@@ -192,42 +192,63 @@ set -g __fish_git_prompt_char_stateseparator		' '
 
 # Defined in /opt/local/share/fish/functions/__fish_git_prompt.fish @ line 678
 function __fish_git_prompt_set_color
-	set -l user_variable_name "$argv[1]"
-    set -l user_variable
-    if set -q $user_variable_name
-        set user_variable $$user_variable_name
-    end
-    set -l user_variable_bright
+  set -l user_variable_name "$argv[1]"
+  set -l user_variable
+  if set -q $user_variable_name
+    set user_variable $$user_variable_name
+  end
+  set -l user_variable_bright
 
-    set -l default default_done
-    switch (count $argv)
-        case 1 # No defaults given, use prompt color
-            set default $___fish_git_prompt_color
-            set default_done $___fish_git_prompt_color_done
-        case 2 # One default given, use normal for done
-            set default "$argv[2]"
-            set default_done (set_color normal)
-        case 3 # Both defaults given
-            set default "$argv[2]"
-            set default_done "$argv[3]"
-    end
+  set -l default default_done
+  switch (count $argv)
+    case 1 # No defaults given, use prompt color
+      set default $___fish_git_prompt_color
+      set default_done $___fish_git_prompt_color_done
+    case 2 # One default given, use normal for done
+      set default "$argv[2]"
+      set default_done (set_color normal)
+    case 3 # Both defaults given
+      set default "$argv[2]"
+      set default_done "$argv[3]"
+  end
 
-    set -l variable _$user_variable_name
-    set -l variable_done "$variable"_done
+  set -l variable _$user_variable_name
+  set -l variable_done "$variable"_done
 
-    if not set -q $variable
-        if test -n "$user_variable"
-            set -g $variable (eval "set_color $user_variable")
-            set -g $variable_done (set_color normal)
-        else
-            set -g $variable $default
-            set -g $variable_done $default_done
-        end
+  if not set -q $variable
+    if test -n "$user_variable"
+      set -g $variable (eval "set_color $user_variable")
+      set -g $variable_done (set_color normal)
+    else
+      set -g $variable $default
+      set -g $variable_done $default_done
     end
+  end
 end
 
 if random 1 2 2> /dev/null > /dev/null
   starship init fish | source
 else
-  source ("/opt/local/bin/starship" init fish --print-full-init | sed -e '{s/random/starship session/;}' | psub)
+  function fish_prompt
+    switch "$fish_key_bindings"
+      case fish_hybrid_key_bindings fish_vi_key_bindings
+        set keymap "$fish_bind_mode"
+      case '*'
+        set keymap insert
+    end
+    set -l exit_code $status
+    # Account for changes in variable name between v2.7 and v3.0
+    set -l starship_duration "$CMD_DURATION$cmd_duration"
+    "/opt/local/bin/starship" prompt --status=$exit_code --keymap=$keymap --cmd-duration=$starship_duration --jobs=(count (jobs -p))
+  end
+
+  # disable virtualenv prompt, it breaks starship
+  set VIRTUAL_ENV_DISABLE_PROMPT 1
+
+  function fish_mode_prompt
+  end
+  export STARSHIP_SHELL="fish"
+
+  # Set up the session key that will be used to store logs
+  export STARSHIP_SESSION_KEY=(startship session)
 end
