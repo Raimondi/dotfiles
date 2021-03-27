@@ -148,7 +148,7 @@ source "$plugin_dir/fbell.fish"
 #set random (dd if=/dev/urandom bs=6 count=1 2>/dev/null | cksum | cut -f1 -d " ")
 #set lucky (math "($random % "(count $colors)") + 1")
 #eval "colorscheme -s $colors[$lucky]"
-colorscheme -s FA6900 69D2E7 A7DBD8 F38630 E0E4CC
+#colorscheme -s FA6900 69D2E7 A7DBD8 F38630 E0E4CC
 set -g fish_color_autosuggestion 555
 set -g fish_color_search_match      --background=555
 
@@ -229,6 +229,5 @@ end
 if random 1 2 2> /dev/null > /dev/null
   starship init fish | source
 else
-  source ("/opt/local/bin/starship" init fish --print-full-init \
-     | sed -e '{s/random/starship session/;}' | psub)
+  source ("/opt/local/bin/starship" init fish --print-full-init | sed -e '{s/random/starship session/;}' | psub)
 end
