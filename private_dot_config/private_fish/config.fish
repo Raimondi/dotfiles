@@ -250,5 +250,5 @@ else
   export STARSHIP_SHELL="fish"
 
   # Set up the session key that will be used to store logs
-  export STARSHIP_SESSION_KEY=(startship session)
+  export STARSHIP_SESSION_KEY=(starship session)
 end
