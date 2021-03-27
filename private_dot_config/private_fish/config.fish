@@ -239,7 +239,7 @@ else
     set -l exit_code $status
     # Account for changes in variable name between v2.7 and v3.0
     set -l starship_duration "$CMD_DURATION$cmd_duration"
-    "/opt/local/bin/starship" prompt --status=$exit_code --keymap=$keymap --cmd-duration=$starship_duration --jobs=(count (jobs -p))
+    starship prompt --status=$exit_code --keymap=$keymap --cmd-duration=$starship_duration --jobs=(count (jobs -p))
   end
 
   # disable virtualenv prompt, it breaks starship
